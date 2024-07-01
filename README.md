@@ -757,6 +757,10 @@ Using more devices to determine optimal color shades.
 
   The service was used to optimize pictures
 
+- [FLATICON](https://www.flaticon.com/free-icon/numerology_9288700?term=dice&page=1&position=59&origin=search&related_id=9288700)
+
+  Site favicon
+
 [Back to top](#content)
 
 ### Acknowledgment
