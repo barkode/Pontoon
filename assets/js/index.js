@@ -27,16 +27,20 @@ const DEFAULT_DECK = 'deck1';
  * Create new deck.
  * Return array of object. Each object is a cart with type, value, name and image;
  */
-function buildDeck(cards, types, deckImg = 'deck1') {
-  const deck = [];
+function buildDeck(cards, types, deckNumber = 'deck1') {
+  const fullDeck = [];
   for (let type of types) {
     for (let card of cards) {
-      deck.push({ card, type, deckImg });
+      fullDeck.push({
+        card,
+        type,
+        img: `../images/${deckNumber}/${deckNumber}-${card}-${type}.jpg`,
+      });
     }
   }
   // Add values to cards
 
-  deck.forEach(el => {
+  fullDeck.forEach(el => {
     if (!isNaN(el.card)) {
       el.value = Number(el.card);
     } else if (el.card === 'a') {
@@ -46,7 +50,21 @@ function buildDeck(cards, types, deckImg = 'deck1') {
     }
   });
 
-  return deck;
+  return fullDeck;
+}
+
+function showCards(array) {
+  const divEl = document.getElementById('root');
+  const cards = array.reduce(
+    (acc, { card, type, img }) =>
+      (acc += `<li><img src=${img} alt=${card}-${type}/><p></p></li>`),
+    ''
+  );
+  const list = document.createElement('ul');
+  divEl.append(list);
+  list.innerHTML = cards;
 }
 
 console.log(buildDeck(CARDS, CARD_TYPE));
+
+showCards(buildDeck(CARDS, CARD_TYPE));
