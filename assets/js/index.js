@@ -4,7 +4,7 @@
 // CONSTANTS
 
 const CARDS = [
-  'A',
+  'a',
   '2',
   '3',
   '4',
@@ -14,9 +14,9 @@ const CARDS = [
   '8',
   '9',
   '10',
-  'J',
-  'Q',
-  'K',
+  'j',
+  'q',
+  'k',
 ];
 
 const CARD_TYPE = ['club', 'heart', 'diamond', 'spade'];
@@ -29,15 +29,23 @@ const DEFAULT_DECK = 'deck1';
  */
 function buildDeck(cards, types, deckImg = 'deck1') {
   const deck = [];
-  const oneCard = {};
   for (let type of types) {
     for (let card of cards) {
-      if (!isNaN(card)) {
-      }
-
       deck.push({ card, type, deckImg });
     }
   }
+  // Add values to cards
+
+  deck.forEach(el => {
+    if (!isNaN(el.card)) {
+      el.value = Number(el.card);
+    } else if (el.card === 'a') {
+      el.value = 11;
+    } else {
+      el.value = 10;
+    }
+  });
+
   return deck;
 }
 
