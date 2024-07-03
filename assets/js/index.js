@@ -23,6 +23,16 @@ const CARD_TYPE = ['club', 'heart', 'diamond', 'spade'];
 const DEFAULT_DECK = 'deck1';
 const IMAGE_FORMAT = 'jpg';
 
+// Game counts
+
+const counts = {
+  win: 0,
+  lose: 0,
+  playerCards: [],
+  dealerCards: [],
+  playerName: null,
+};
+
 /**
  * Create new deck.
  * Return array of object. Each object is a cart with type, value, name and image;
@@ -40,7 +50,7 @@ function buildDeck(
         card,
         type,
         imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type}.${IMAGE_FORMAT}`,
-        imgBack: `./assets/images/${deckName}/backCard.${IMAGE_FORMAT}`,
+        imgBack: `./assets/images/${deckName}/cardBack.${IMAGE_FORMAT}`,
       });
     }
   }
@@ -59,39 +69,37 @@ function buildDeck(
   return fullDeck;
 }
 
+const fullCardDeck = buildDeck(CARDS, CARD_TYPE, DEFAULT_DECK, IMAGE_FORMAT);
+console.log(fullCardDeck);
+
 /**
- * Create card from object
+ * Shuffle deck function.
+ * Randomize array in-place using Durstenfeld shuffle algorithm
  */
-function createCard(element) {}
 
-// function createCardImage({ card, type, img }) {
-//   const cardImg = document.createElement('img');
-//   cardImg.src = img;
-//   cardImg.alt = `${card}-${type}-${card}`;
-// }
-
-function showCards(array) {
-  const divEl = document.getElementById('root');
-  const list = document.createElement('ul');
-  list.style.display = 'flex';
-  list.style.flexWrap = 'wrap';
-  list.style.gap = '20px';
-  list.style.listStyleType = 'none';
-  // list.style.flexBasis = '150';
-  list.style.backgroundColor = 'green';
-  for (let el of array) {
-    const item = document.createElement('li');
-    const image = document.createElement('img');
-    item.style.width = '150px';
-    image.src = el.img;
-    image.alt = `${el.card}-${el.type}`;
-    image.width = '150';
-    item.appendChild(image);
-    list.appendChild(item);
+function shuffleDeck(array) {
+  // Randomize array in -place using Durstenfeld shuffle algorithm
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
-  divEl.append(list);
+  return array;
 }
 
-console.log(buildDeck(CARDS, CARD_TYPE));
+/**
+ * The function receives an array as input.
+ * Shuffles data and arrays.
+ * After that, it randomly generates the value for the playing card.
+ */
 
-showCards(buildDeck(CARDS, CARD_TYPE));
+function cardDistribution(deck) {
+  // Get random card
+  const oneCard = Math.floor(Math.random() * 52);
+
+  return deck[oneCard];
+}
+
+console.log(shuffleDeck(fullCardDeck));
+console.log(cardDistribution(fullCardDeck));
