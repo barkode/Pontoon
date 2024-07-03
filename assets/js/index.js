@@ -1,31 +1,11 @@
 // Adds strict mode to JS.
 'use strict';
 
-// CONSTANTS
-
-const CARDS = [
-  'a',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'j',
-  'q',
-  'k',
-];
-
-const CARD_TYPE = ['clubs', 'hearts', 'diamonds', 'spades'];
-const DEFAULT_DECK = 'deck1';
-const IMAGE_FORMAT = 'jpg';
+import defaultSettings from './settings.js';
 
 // Game counts
 
-const counts = {
+const gameCounts = {
   win: 0,
   lose: 0,
   playerCards: [],
@@ -38,20 +18,16 @@ const counts = {
  * Return array of object. Each object is a cart with type, value, name and image;
  * Shuffles data and arrays.
  */
-function buildDeck(
-  cards,
-  types,
-  deckName = DEFAULT_DECK,
-  IMAGE_FORMAT = 'jpg'
-) {
+function buildDeck(settings) {
+  const { cards, cardType, deckName, imgFormat } = settings;
   const fullDeck = [];
-  for (let type of types) {
+  for (let type of cardType) {
     for (let card of cards) {
       fullDeck.push({
         card,
         type,
-        imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type[0]}.${IMAGE_FORMAT}`,
-        imgBack: `./assets/images/${deckName}/cardBack.${IMAGE_FORMAT}`,
+        imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type[0]}.${imgFormat}`,
+        imgBack: `./assets/images/${deckName}/cardBack.${imgFormat}`,
       });
     }
   }
@@ -71,9 +47,6 @@ function buildDeck(
 
   return fullDeck;
 }
-
-const fullCardDeck = buildDeck(CARDS, CARD_TYPE, DEFAULT_DECK, IMAGE_FORMAT);
-console.log(fullCardDeck);
 
 /**
  * Shuffle deck function.
@@ -105,4 +78,28 @@ function cardDistribution(array) {
   return array[oneCard];
 }
 
+function addCardsToArray(card, array) {
+  array.push(card);
+}
+
+function startGame() {}
+
+const fullCardDeck = buildDeck(defaultSettings);
+
+for (let i = 0; i < 10; i += 1) {
+  const card = cardDistribution(fullCardDeck);
+  addCardsToArray(card, gameCounts.playerCards);
+}
+
+for (let i = 0; i < 10; i += 1) {
+  const card = cardDistribution(fullCardDeck);
+  addCardsToArray(card, gameCounts.dealerCards);
+}
+
+console.log(gameCounts.dealerCards);
+console.log(gameCounts.playerCards);
+
 console.log(cardDistribution(fullCardDeck));
+
+const newArray = [...fullCardDeck];
+console.log(newArray);
