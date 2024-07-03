@@ -19,7 +19,7 @@ const CARDS = [
   'k',
 ];
 
-const CARD_TYPE = ['club', 'heart', 'diamond', 'spade'];
+const CARD_TYPE = ['clubs', 'hearts', 'diamonds', 'spades'];
 const DEFAULT_DECK = 'deck1';
 const IMAGE_FORMAT = 'jpg';
 
@@ -36,6 +36,7 @@ const counts = {
 /**
  * Create new deck.
  * Return array of object. Each object is a cart with type, value, name and image;
+ * Shuffles data and arrays.
  */
 function buildDeck(
   cards,
@@ -49,7 +50,7 @@ function buildDeck(
       fullDeck.push({
         card,
         type,
-        imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type}.${IMAGE_FORMAT}`,
+        imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type[0]}.${IMAGE_FORMAT}`,
         imgBack: `./assets/images/${deckName}/cardBack.${IMAGE_FORMAT}`,
       });
     }
@@ -65,6 +66,8 @@ function buildDeck(
       el.value = 10;
     }
   });
+
+  shuffleDeck(fullDeck);
 
   return fullDeck;
 }
@@ -85,21 +88,21 @@ function shuffleDeck(array) {
     array[i] = array[j];
     array[j] = temp;
   }
-  return array;
 }
 
 /**
  * The function receives an array as input.
- * Shuffles data and arrays.
- * After that, it randomly generates the value for the playing card.
+ *
+ * It randomly generates the value for the playing card.
  */
 
-function cardDistribution(deck) {
+function cardDistribution(array) {
+  // Shuffle deck
+
   // Get random card
   const oneCard = Math.floor(Math.random() * 52);
 
-  return deck[oneCard];
+  return array[oneCard];
 }
 
-console.log(shuffleDeck(fullCardDeck));
 console.log(cardDistribution(fullCardDeck));
