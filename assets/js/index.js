@@ -1,13 +1,17 @@
 // Adds strict mode to JS.
 'use strict';
 
+import defaultSettings from './settings.js';
+
 // Game counts
 
 const gameCounts = {
   win: 0,
   lose: 0,
   playerCards: [],
+  playerSum: 0,
   dealerCards: [],
+  dealerSum: 0,
   playerName: '',
 };
 
@@ -27,33 +31,59 @@ startButton.addEventListener('click', e => {
 hitButton.addEventListener('click', e => console.log('HIT BUTTON: ', e));
 stopButton.addEventListener('click', e => console.log('STOP BUTTON: ', e));
 
+const fullCardDeck = buildDeck(defaultSettings);
+
 function startGame(settings) {
   let { win, lose, playerCards, dealerCards, playerName } = settings;
+  // Init counter. Counter used for init quantity of elements in array
   let i = 1;
+
+  // Reset all elements at the beginning of the game.
   playerCards = [];
   dealerCards = [];
+  playerSum = 0;
+  dealerSum = 0;
+
   // Player and dealer cards
   do {
     const oneCardNumber = Math.floor(Math.random() * 52);
-    console.log('GENERATED CARD : ', oneCardNumber);
+
+    // Check is the random number in our array.
     const isElExist = !isElementInArray(
       oneCardNumber,
       playerCards,
       dealerCards
     );
+
+    // Check if the number unique for array than add that number
+
+    // If the number is odd than push it to the player cards array
     if (isElExist && i % 2 !== 0) {
       playerCards.push(oneCardNumber);
-      console.log('PLAYER CARDS ARRAY : ', playerCards);
+      // If the number is even than push it to the dealer cards array
     } else if (isElExist && i % 2 === 0) {
       dealerCards.push(oneCardNumber);
-      console.log('DEALER CARDS ARRAY : ', dealerCards);
     } else {
-      console.log('i in ELSE', i);
       continue;
     }
     i += 1;
-    console.log("i AFTER ALL IF's", i);
   } while (i < 5);
+  console.log(showCards(playerCards, fullCardDeck));
+  console.log(showCards(dealerCards, fullCardDeck));
+}
+
+/**
+ * The function takes user cards array with numbers and full deck array.
+ * Function returns an array with a ratio of a random number and map maps
+ */
+
+function showCards(userCards, deck) {
+  const gameCards = [];
+  for (let card of userCards) {
+    gameCards.push(deck[card]);
+  }
+
+  return gameCards;
 }
 
 // console.log(gameCounts.playerCards);
