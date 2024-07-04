@@ -123,6 +123,13 @@ function playerHit(settings) {
       console.log('BEFORE CONTINUE');
       continue;
     }
+    // If the sum of the cards exceeds 21, then the player lost.
+    const sum = calcSum(showCards(settings.playerCards, fullCardDeck));
+    console.log('PLAYER CARDS SUM : ', sum);
+    if (sum > 21) {
+      alert('TO MUCH !!!!');
+      break;
+    }
     // finish loop when the length of the array will be +1 element
   } while (i === settings.playerCards.length);
   console.log('PLAYER CARDS LENGTH AFTER ALL', settings.playerCards.length);
