@@ -1,8 +1,6 @@
 // Adds strict mode to JS.
 'use strict';
 
-import defaultSettings from './settings.js';
-
 // Game counts
 
 const gameCounts = {
@@ -10,8 +8,65 @@ const gameCounts = {
   lose: 0,
   playerCards: [],
   dealerCards: [],
-  playerName: null,
+  playerName: '',
 };
+
+// FIND BUTTONS
+
+const startButton = document.getElementById('start');
+const hitButton = document.getElementById('hit');
+const stopButton = document.getElementById('stop');
+const form = document.getElementById('form');
+const input = form.name;
+
+startButton.addEventListener('click', e => {
+  console.log('START BUTTON: ', e);
+  startGame(gameCounts);
+});
+
+hitButton.addEventListener('click', e => console.log('HIT BUTTON: ', e));
+stopButton.addEventListener('click', e => console.log('STOP BUTTON: ', e));
+
+function startGame(settings) {
+  let { win, lose, playerCards, dealerCards, playerName } = settings;
+  let i = 1;
+  playerCards = [];
+  dealerCards = [];
+  // Player and dealer cards
+  do {
+    const oneCardNumber = Math.floor(Math.random() * 52);
+    console.log('GENERATED CARD : ', oneCardNumber);
+    const isElExist = !isElementInArray(
+      oneCardNumber,
+      playerCards,
+      dealerCards
+    );
+    if (isElExist && i % 2 !== 0) {
+      playerCards.push(oneCardNumber);
+      console.log('PLAYER CARDS ARRAY : ', playerCards);
+    } else if (isElExist && i % 2 === 0) {
+      dealerCards.push(oneCardNumber);
+      console.log('DEALER CARDS ARRAY : ', dealerCards);
+    } else {
+      console.log('i in ELSE', i);
+      continue;
+    }
+    i += 1;
+    console.log("i AFTER ALL IF's", i);
+  } while (i < 5);
+}
+
+// console.log(gameCounts.playerCards);
+
+/**
+ *  function check is element unique.
+ *  accepts two data arrays and return true or false
+ */
+
+function isElementInArray(element, array1, array2) {
+  const tempArray = [...array1, ...array2];
+  return tempArray.includes(element);
+}
 
 /**
  * Create new deck.
@@ -63,43 +118,32 @@ function shuffleDeck(array) {
   }
 }
 
+// ! function commented.
 /**
  * The function receives an array as input.
- *
  * It randomly generates the value for the playing card.
  */
 
-function cardDistribution(array) {
-  // Shuffle deck
+// function cardDistribution(array) {
+//   // Get random card
+//   const oneCard = Math.floor(Math.random() * 52);
 
-  // Get random card
-  const oneCard = Math.floor(Math.random() * 52);
+//   return array[oneCard];
+// }
 
-  return array[oneCard];
-}
+// ! ===================================
 
 function addCardsToArray(card, array) {
   array.push(card);
 }
 
-function startGame() {}
+// const fullCardDeck = buildDeck(defaultSettings);
 
-const fullCardDeck = buildDeck(defaultSettings);
-
-for (let i = 0; i < 10; i += 1) {
-  const card = cardDistribution(fullCardDeck);
-  addCardsToArray(card, gameCounts.playerCards);
-}
-
-for (let i = 0; i < 10; i += 1) {
-  const card = cardDistribution(fullCardDeck);
-  addCardsToArray(card, gameCounts.dealerCards);
-}
-
-console.log(gameCounts.dealerCards);
-console.log(gameCounts.playerCards);
-
-console.log(cardDistribution(fullCardDeck));
-
-const newArray = [...fullCardDeck];
-console.log(newArray);
+// for (let i = 0; i < 10; i += 1) {
+//   const card = cardDistribution(fullCardDeck);
+//   console.log(
+//     isElementInArray(card, gameCounts.playerCards, gameCounts.dealerCards)
+//   );
+//   console.log([...gameCounts.playerCards, ...gameCounts.playerCards]);
+//   addCardsToArray(card, gameCounts.playerCards);
+// }
