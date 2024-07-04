@@ -19,7 +19,7 @@ const gameCounts = {
 
 const startButton = document.getElementById('start');
 const hitButton = document.getElementById('hit');
-const stopButton = document.getElementById('stop');
+const stopButton = document.getElementById('stand');
 const form = document.getElementById('form');
 const input = form.name;
 
@@ -34,7 +34,15 @@ stopButton.addEventListener('click', e => console.log('STOP BUTTON: ', e));
 const fullCardDeck = buildDeck(defaultSettings);
 
 function startGame(settings) {
-  let { win, lose, playerCards, dealerCards, playerName } = settings;
+  let {
+    win,
+    lose,
+    playerCards,
+    dealerCards,
+    playerName,
+    playerSum,
+    dealerSum,
+  } = settings;
   // Init counter. Counter used for init quantity of elements in array
   let i = 1;
 
@@ -67,9 +75,15 @@ function startGame(settings) {
       continue;
     }
     i += 1;
-  } while (i < 5);
-  console.log(showCards(playerCards, fullCardDeck));
-  console.log(showCards(dealerCards, fullCardDeck));
+  } while (i < 21);
+  console.log(
+    'PLAYER CARDS SUM : ',
+    calcSum(showCards(playerCards, fullCardDeck))
+  );
+  console.log(
+    'DEALER CARDS SUM : ',
+    calcSum(showCards(dealerCards, fullCardDeck))
+  );
 }
 
 /**
@@ -77,13 +91,36 @@ function startGame(settings) {
  * Function returns an array with a ratio of a random number and map maps
  */
 
-function showCards(userCards, deck) {
+function showCards(userCardsArray, deck) {
   const gameCards = [];
-  for (let card of userCards) {
+  for (let card of userCardsArray) {
     gameCards.push(deck[card]);
   }
 
   return gameCards;
+}
+
+/**
+ *
+ * The function accepts an array of objects with cards and returns the amount of values
+ */
+
+function calcSum(userCardsArray) {
+  let allSum = userCardsArray.reduce(
+    (acc, { value }) => acc + Number(value),
+    0
+  );
+  // console.log(allSum);
+  let cardsArray = userCardsArray.map(({ card }) => card);
+  console.log(cardsArray);
+  if (cardsArray.includes('a') && allSum > 21) {
+    return userCardsArray.reduce(
+      (acc, { value }) => (value == 11 ? acc + 1 : acc + value),
+      0
+    );
+  } else {
+    return allSum;
+  }
 }
 
 // console.log(gameCounts.playerCards);
@@ -106,6 +143,7 @@ function isElementInArray(element, array1, array2) {
 function buildDeck(settings) {
   const { cards, cardType, deckName, imgFormat } = settings;
   const fullDeck = [];
+  // Create full deck with 52 cards.
   for (let type of cardType) {
     for (let card of cards) {
       fullDeck.push({
@@ -116,8 +154,8 @@ function buildDeck(settings) {
       });
     }
   }
-  // Add values to cards
 
+  // Add values to cards
   fullDeck.forEach(el => {
     if (!isNaN(el.card)) {
       el.value = Number(el.card);
@@ -147,33 +185,3 @@ function shuffleDeck(array) {
     array[j] = temp;
   }
 }
-
-// ! function commented.
-/**
- * The function receives an array as input.
- * It randomly generates the value for the playing card.
- */
-
-// function cardDistribution(array) {
-//   // Get random card
-//   const oneCard = Math.floor(Math.random() * 52);
-
-//   return array[oneCard];
-// }
-
-// ! ===================================
-
-function addCardsToArray(card, array) {
-  array.push(card);
-}
-
-// const fullCardDeck = buildDeck(defaultSettings);
-
-// for (let i = 0; i < 10; i += 1) {
-//   const card = cardDistribution(fullCardDeck);
-//   console.log(
-//     isElementInArray(card, gameCounts.playerCards, gameCounts.dealerCards)
-//   );
-//   console.log([...gameCounts.playerCards, ...gameCounts.playerCards]);
-//   addCardsToArray(card, gameCounts.playerCards);
-// }
