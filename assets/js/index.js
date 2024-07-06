@@ -56,6 +56,9 @@ function startGame(settings) {
   gameCounts.resetDealerCards();
 
   dealCards(handoutArray, fullCardDeck);
+
+  console.log(gameCounts.getPlayerSum());
+  console.log(gameCounts.getDealerSum());
 }
 
 /**
@@ -88,7 +91,8 @@ function playerHit(settings) {
     }
 
     // If the sum of the cards exceeds 21, then the player lost.
-    const sum = calcCardSum(showCards(settings.playerCards, fullCardDeck));
+    const sum = gameCounts.getPlayerSum();
+    console.log(sum);
 
     if (sum > 21) {
       alert(`SORRY. BUT ${sum} IS TO MUCH ;(((`);
@@ -178,23 +182,24 @@ function dealCards(handOutArr, deck) {
 
     // Condition i < 5 because we need to init array with 4 elements.
     i += 1;
-  } while (i < 5);
+  } while (i < 21);
 
   console.log(handOutArr);
   // If the number is odd than push it to the player cards array otherwise push to dealer cards array
   // If the number is even than push it to the dealer cards array
+
   handOutArr.forEach((item, index) =>
     gameCounts[index % 2 === 0 ? 'setPlayerCard' : 'setDealerCard'](
       showCard(item, deck)
     )
   );
+
   console.log(gameCounts.getPlayerCards());
   console.log(gameCounts.getDealerCards());
   console.log(gameCounts);
 }
 
 function dealOneCard(card, array) {
-  // const oneCard = dealRandomCardNumber();
   const isElExist = isElInArray(card, array);
   if (isElExist) {
     return false;
@@ -208,9 +213,7 @@ function dealOneCard(card, array) {
  */
 
 function dealRandomCardNumber() {
-  const max = 52;
-  const min = 0;
-  return Math.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * 52);
 }
 
 /**
@@ -227,21 +230,21 @@ function showCard(number, deck) {
  * The function accepts an array of objects with cards and returns the amount of values
  */
 
-function calcCardSum(userCardsArray) {
-  let allSum = userCardsArray.reduce(
-    (acc, { value }) => acc + Number(value),
-    0
-  );
-  let cardsArray = userCardsArray.map(({ card }) => card);
-  if (cardsArray.includes('a') && allSum > 21) {
-    return userCardsArray.reduce(
-      (acc, { value }) => (value == 11 ? acc + 1 : acc + value),
-      0
-    );
-  } else {
-    return allSum;
-  }
-}
+// function calcCardSum(userCardsArray) {
+//   let allSum = userCardsArray.reduce(
+//     (acc, { value }) => acc + Number(value),
+//     0
+//   );
+//   let cardsArray = userCardsArray.map(({ card }) => card);
+//   if (cardsArray.includes('a') && allSum > 21) {
+//     return userCardsArray.reduce(
+//       (acc, { value }) => (value == 11 ? acc + 1 : acc + value),
+//       0
+//     );
+//   } else {
+//     return allSum;
+//   }
+// }
 
 /**
  *  function check is element unique.
