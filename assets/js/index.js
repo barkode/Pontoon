@@ -23,6 +23,7 @@ refs.standButton.addEventListener('click', e => {
 });
 
 const fullCardDeck = buildDeck(defaultSettings);
+const handoutArray = [];
 console.log(gameCounts);
 
 function startGame(settings) {
@@ -134,11 +135,27 @@ function playerStand(settings) {
   if (i === 0) {
     return;
   }
+
   console.log(settings.dealerCards);
   console.log(i);
   // Adding another card to an array of user
   do {
+    const sum = calcSum(showCards(settings.dealerCards, fullCardDeck));
     const oneCard = addNewCard();
+
+    if (sum > 17 && sum <= 21) {
+      console.log(
+        'STOP : ',
+        calcSum(showCards(settings.dealerCards, fullCardDeck)) >
+          calcSum(showCards(settings.playerCards, fullCardDeck))
+          ? `Dealer WIN: ${sum} points`
+          : `PLAYER WIN: ${calcSum(
+              showCards(settings.playerCards, fullCardDeck)
+            )} points`
+      );
+      break;
+    }
+
     console.log('GENERATED CARD', oneCard);
     // Check is the random number in our array.
     const isElExist = isElementInArray(
@@ -156,15 +173,19 @@ function playerStand(settings) {
       console.log('BEFORE CONTINUE');
       continue;
     }
+
     // If the sum of the cards exceeds 21, then the player lost.
-    const sum = calcSum(showCards(settings.dealerCards, fullCardDeck));
-    console.log('DEALER CARDS SUM : ', sum);
+    console.log(
+      'DEALER CARDS SUM : ',
+      calcSum(showCards(settings.dealerCards, fullCardDeck))
+    );
+
     if (sum > 21) {
       alert(`SORRY. BUT ${sum} IS TO MUCH ;(((`);
       break;
     }
     // finish loop when the length of the array will be +1 element
-  } while (i === settings.dealerCards.length);
+  } while (calcSum(showCards(settings.dealerCards, fullCardDeck)) > 17);
   console.log('DEALER CARDS LENGTH AFTER ALL', settings.dealerCards.length);
 }
 
