@@ -31,7 +31,7 @@ const refs = {
 };
 
 refs.startButton.addEventListener('click', e => {
-  console.log('START BUTTON: ', e);
+  // console.log('START BUTTON: ', e);
   startGame(gameCounts);
 });
 refs.hitButton.addEventListener('click', e => {
@@ -47,7 +47,7 @@ const fullCardDeck = buildDeck(defaultSettings);
 const handoutArray = [];
 
 function startGame(settings) {
-  console.log('Game Counts BEFORE : ', settings);
+  // console.log('Game Counts BEFORE : ', settings);
 
   // Reset all elements at the beginning of the game.
   handoutArray.length = 0;
@@ -65,37 +65,31 @@ function startGame(settings) {
  */
 
 function playerHit(settings) {
+  console.log(gameCounts.getPlayerCards());
   // Initialization of a variable to add another card to an array of player
-  const i = settings.playerCards.length;
+  const i = gameCounts.getPlayerCards().length;
+  console.log(i);
 
   // Check if there is a values in array. If not - then return
   if (i === 0) {
     return;
   }
-  console.log(settings.playerCards);
-  console.log(i);
   // Adding another card to an array of user
   do {
-    const oneCard = dealANewCard();
-    console.log('GENERATED CARD', oneCard);
+    const oneCard = dealRandomCardNumber();
+
     // Check is the random number in our array.
-    const isElExist = isElementInArray(
-      oneCard,
-      settings.playerCards,
-      settings.dealerCards
-    );
+    const addCard = dealOneCard(oneCard, handoutArray);
+
     // Check if the number unique for array than add that number
-    if (!isElExist) {
-      settings.playerCards.push(oneCard);
-      console.log('i AFTER CARD ADD TO ARRAY', i);
-      console.log('PLAYER CARDS ARRAY AFTER ADD CARD', settings.playerCards);
-    } else {
-      console.log('BEFORE CONTINUE');
+
+    if (!addCard) {
       continue;
     }
+
     // If the sum of the cards exceeds 21, then the player lost.
     const sum = calcCardSum(showCards(settings.playerCards, fullCardDeck));
-    console.log('PLAYER CARDS SUM : ', sum);
+
     if (sum > 21) {
       alert(`SORRY. BUT ${sum} IS TO MUCH ;(((`);
       break;
@@ -190,19 +184,38 @@ function dealCards(handOutArr, deck) {
   // If the number is odd than push it to the player cards array otherwise push to dealer cards array
   // If the number is even than push it to the dealer cards array
   handOutArr.forEach((item, index) =>
-    gameCounts[index % 2 === 0 ? 'setPlayerCard' : 'setDealerCard'](deck[item])
+    gameCounts[index % 2 === 0 ? 'setPlayerCard' : 'setDealerCard'](
+      showCard(item, deck)
+    )
   );
   console.log(gameCounts.getPlayerCards());
   console.log(gameCounts.getDealerCards());
+  console.log(gameCounts);
 }
 
-function dealRandomCardNumber() {
-  return Math.floor(Math.random() * 52);
+function dealOneCard(card, array) {
+  // const oneCard = dealRandomCardNumber();
+  const isElExist = isElInArray(card, array);
+  if (isElExist) {
+    return false;
+  }
+  array.push(card);
+  return true;
 }
 
 /**
- * The function takes user cards array with numbers and full deck array.
- * Function returns an array with a ratio of a random number and map maps
+ * The function returns random number from 0 to 52.
+ */
+
+function dealRandomCardNumber() {
+  const max = 52;
+  const min = 0;
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+/**
+ *  The function accepts the first value number by the second value of an array of objects
+ * Returns the object that is replacing the map from the deck.
  */
 
 function showCard(number, deck) {
@@ -229,8 +242,6 @@ function calcCardSum(userCardsArray) {
     return allSum;
   }
 }
-
-// console.log(gameCounts.playerCards);
 
 /**
  *  function check is element unique.
