@@ -9,6 +9,30 @@ const refs = {
   form: document.getElementById('form'),
 };
 
+const {
+  getWinCount,
+  setWinCount,
+  resetWinCount,
+  getLoseCount,
+  setLoseCount,
+  resetLoseCount,
+  getPlayerSum,
+  setPlayerSum,
+  resetPlayerSum,
+  getDealerSum,
+  setDealerSum,
+  resetDealerSum,
+  getPlayerCards,
+  setPlayerCards,
+  resetPlayerCards,
+  getDealerCards,
+  setDealerCards,
+  resetDealerCards,
+  getPlayerName,
+  setPlayerName,
+  resetPlayerName,
+} = gameCounts;
+
 refs.startButton.addEventListener('click', e => {
   console.log('START BUTTON: ', e);
   startGame(gameCounts);
@@ -31,10 +55,8 @@ function startGame(settings) {
 
   // Reset all elements at the beginning of the game.
   console.log(settings.playerCards);
-  settings.playerCards = [];
-  settings.dealerCards = [];
-  settings.playerSum = 0;
-  settings.dealerSum = 0;
+  resetPlayerCards();
+  resetDealerCards();
   dealCards(handoutArray);
   settings.playerSum = calcCardSum(
     showCards(settings.playerCards, fullCardDeck)
