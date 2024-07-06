@@ -205,13 +205,8 @@ function dealRandomCardNumber() {
  * Function returns an array with a ratio of a random number and map maps
  */
 
-function showCards(userCardsArray, deck) {
-  const gameCards = [];
-  for (let card of userCardsArray) {
-    gameCards.push(deck[card]);
-  }
-
-  return gameCards;
+function showCard(number, deck) {
+  return deck[number];
 }
 
 /**
