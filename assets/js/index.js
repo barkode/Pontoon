@@ -1,50 +1,32 @@
-import defaultSettings from './settings.js';
+import { defaultSettings, gameCounts } from './settings.js';
 
-// Game counts
+// Buttons
 
-const gameCounts = {
-  win: 0,
-  lose: 0,
-  playerCards: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-  dealerCards: [0, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-  playerSum: 0,
-  dealerSum: 0,
-  playerName: '',
+const refs = {
+  startButton: document.getElementById('start'),
+  hitButton: document.getElementById('hit'),
+  standButton: document.getElementById('stand'),
+  form: document.getElementById('form'),
 };
 
-// FIND BUTTONS
-
-const startButton = document.getElementById('start');
-const hitButton = document.getElementById('hit');
-const stopButton = document.getElementById('stand');
-const form = document.getElementById('form');
-const input = form.name;
-
-startButton.addEventListener('click', e => {
+refs.startButton.addEventListener('click', e => {
   console.log('START BUTTON: ', e);
   startGame(gameCounts);
 });
-
-hitButton.addEventListener('click', e => {
+refs.hitButton.addEventListener('click', e => {
   console.log('HIT BUTTON: ', e);
   playerHit(gameCounts);
 });
-stopButton.addEventListener('click', e => console.log('STAND BUTTON: ', e));
+refs.standButton.addEventListener('click', e => {
+  console.log('STAND BUTTON: ', e);
+  playerStand(gameCounts);
+});
 
 const fullCardDeck = buildDeck(defaultSettings);
 console.log(gameCounts);
 
 function startGame(settings) {
   console.log('Game Counts BEFORE : ', settings);
-  // let {
-  //   win,
-  //   lose,
-  //   playerCards,
-  //   dealerCards,
-  //   playerName,
-  //   playerSum,
-  //   dealerSum,
-  // } = settings;
 
   // Init counter. Counter used for init quantity of elements in array
   let i = 1;
@@ -98,12 +80,22 @@ function startGame(settings) {
   console.log('Game Counts AFTER : ', settings);
 }
 
+/**
+ *The feature accepts an array with settings
+ * Adds the card to playing
+ * Checks the amount of cards from the player in his hands.If the sum is more than 21 then completes the work.
+ */
+
 function playerHit(settings) {
   // Initialization of a variable to add another card to an array of player
   const i = settings.playerCards.length;
+
+  // Check if there is a values in array. If not - then return
+  if (i === 0) {
+    return;
+  }
   console.log(settings.playerCards);
   console.log(i);
-
   // Adding another card to an array of user
   do {
     const oneCard = addNewCard();
@@ -127,7 +119,7 @@ function playerHit(settings) {
     const sum = calcSum(showCards(settings.playerCards, fullCardDeck));
     console.log('PLAYER CARDS SUM : ', sum);
     if (sum > 21) {
-      alert('TO MUCH !!!!');
+      alert(`SORRY. BUT ${sum} IS TO MUCH ;(((`);
       break;
     }
     // finish loop when the length of the array will be +1 element
@@ -135,7 +127,46 @@ function playerHit(settings) {
   console.log('PLAYER CARDS LENGTH AFTER ALL', settings.playerCards.length);
 }
 
-function playerStand() {}
+function playerStand(settings) {
+  const i = settings.dealerCards.length;
+
+  // Check if there is a values in array. If not - then return
+  if (i === 0) {
+    return;
+  }
+  console.log(settings.dealerCards);
+  console.log(i);
+  // Adding another card to an array of user
+  do {
+    const oneCard = addNewCard();
+    console.log('GENERATED CARD', oneCard);
+    // Check is the random number in our array.
+    const isElExist = isElementInArray(
+      oneCard,
+      settings.playerCards,
+      settings.dealerCards
+    );
+
+    // Check if the number unique for array than add that number
+    if (!isElExist) {
+      settings.dealerCards.push(oneCard);
+      console.log('i AFTER CARD ADD TO ARRAY', i);
+      console.log('DEALER CARDS ARRAY AFTER ADD CARD', settings.dealerCards);
+    } else {
+      console.log('BEFORE CONTINUE');
+      continue;
+    }
+    // If the sum of the cards exceeds 21, then the player lost.
+    const sum = calcSum(showCards(settings.dealerCards, fullCardDeck));
+    console.log('DEALER CARDS SUM : ', sum);
+    if (sum > 21) {
+      alert(`SORRY. BUT ${sum} IS TO MUCH ;(((`);
+      break;
+    }
+    // finish loop when the length of the array will be +1 element
+  } while (i === settings.dealerCards.length);
+  console.log('DEALER CARDS LENGTH AFTER ALL', settings.dealerCards.length);
+}
 
 function addNewCard() {
   return Math.floor(Math.random() * 52);
