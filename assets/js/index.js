@@ -1,4 +1,25 @@
-import { defaultSettings, gameCounts } from './settings.js';
+import { gameCounts } from './gameCounts.js';
+
+import { defaultSettings } from './settings.js';
+
+// const {
+//   getDealerCards,
+//   getDealerSum,
+//   getLoseCount,
+//   getPlayerCards,
+//   getPlayerName,
+//   getPlayerSum,
+//   getWinCount,
+//   resetCounts,
+//   resetDealerCards,
+//   resetPlayerCards,
+//   resetPlayerName,
+//   setDealerCard,
+//   setLoseCount,
+//   setPlayerCard,
+//   setPlayerName,
+//   setWinCount,
+// } = gameCounts;
 
 // Buttons
 
@@ -8,30 +29,6 @@ const refs = {
   standButton: document.getElementById('stand'),
   form: document.getElementById('form'),
 };
-
-const {
-  getWinCount,
-  setWinCount,
-  resetWinCount,
-  getLoseCount,
-  setLoseCount,
-  resetLoseCount,
-  getPlayerSum,
-  setPlayerSum,
-  resetPlayerSum,
-  getDealerSum,
-  setDealerSum,
-  resetDealerSum,
-  getPlayerCards,
-  setPlayerCards,
-  resetPlayerCards,
-  getDealerCards,
-  setDealerCards,
-  resetDealerCards,
-  getPlayerName,
-  setPlayerName,
-  resetPlayerName,
-} = gameCounts;
 
 refs.startButton.addEventListener('click', e => {
   console.log('START BUTTON: ', e);
@@ -48,35 +45,17 @@ refs.standButton.addEventListener('click', e => {
 
 const fullCardDeck = buildDeck(defaultSettings);
 const handoutArray = [];
-console.log(gameCounts);
 
 function startGame(settings) {
   console.log('Game Counts BEFORE : ', settings);
 
   // Reset all elements at the beginning of the game.
-  console.log(settings.playerCards);
-  resetPlayerCards();
-  resetDealerCards();
-  dealCards(handoutArray);
-  settings.playerSum = calcCardSum(
-    showCards(settings.playerCards, fullCardDeck)
-  );
-  settings.dealerSum = calcCardSum(
-    showCards(settings.dealerCards, fullCardDeck)
-  );
-  console.log('PLAYER CARDS SHORT : ', settings.playerCards);
-  console.log('DEALER CARDS SHORT: ', settings.dealerCards);
-  console.log(
-    'PLAYER CARDS FULL: ',
-    showCards(settings.playerCards, fullCardDeck)
-  );
-  console.log(
-    'DEALER CARDS FULL: ',
-    showCards(settings.dealerCards, fullCardDeck)
-  );
-  console.log('PLAYER CARDS SUM : ', settings.playerSum);
-  console.log('DEALER CARDS SUM : ', settings.dealerSum);
-  console.log('Game Counts AFTER : ', settings);
+
+  gameCounts.resetPlayerCards();
+  gameCounts.resetDealerCards();
+  gameCounts.resetCounts();
+
+  dealCards(handoutArray, fullCardDeck);
 }
 
 /**
@@ -154,7 +133,6 @@ function playerStand(settings) {
       break;
     }
 
-    console.log('GENERATED CARD', oneCard);
     // Check is the random number in our array.
     const isElExist = isElementInArray(
       oneCard,
@@ -168,7 +146,6 @@ function playerStand(settings) {
       console.log('i AFTER CARD ADD TO ARRAY', i);
       console.log('DEALER CARDS ARRAY AFTER ADD CARD', settings.dealerCards);
     } else {
-      console.log('BEFORE CONTINUE');
       continue;
     }
 
@@ -187,7 +164,7 @@ function playerStand(settings) {
   console.log('DEALER CARDS LENGTH AFTER ALL', settings.dealerCards.length);
 }
 
-function dealCards(handOutArr) {
+function dealCards(handOutArr, deck) {
   // Init counter. Counter used for init quantity of elements in array
   let i = 1;
   // Player and dealer cards
@@ -199,19 +176,35 @@ function dealCards(handOutArr) {
 
     // Check if the number unique for array than add that number
 
-    // If the number is odd than push it to the player cards array
     if (isElExist) {
       continue;
-      // settings.playerCards.push(oneCard);
-      // If the number is even than push it to the dealer cards array
-      // } else if (!isElExist && i % 2 === 0) {
-      // settings.dealerCards.push(oneCard);
     }
+
     handOutArr.push(oneCard);
 
+    // // If the number is odd than push it to the player cards array
+    // if (!isElExist && i % 2 !== 0) {
+    //   handOutArr.push(oneCard);
+    //   // If the number is even than push it to the dealer cards array
+    // } else if (!isElExist && i % 2 === 0) {
+    // } else {
+    //   continue;
+    // }
+
+    // Condition i < 5 because we need to init array with 4 elements.
     i += 1;
-    // Condition i < 5 because we need a init array with 4 elements.
   } while (i < 5);
+
+  console.log(handOutArr);
+  handOutArr.forEach((item, index) => {
+    if (index % 2 === 0) {
+      gameCounts.setPlayerCard(deck[item]);
+    } else {
+      gameCounts.setDealerCard(deck[item]);
+    }
+  });
+  console.log(gameCounts.getPlayerCards());
+  console.log(gameCounts.getDealerCards());
 }
 
 function dealANewCard() {
