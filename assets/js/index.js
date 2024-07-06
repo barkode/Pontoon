@@ -50,10 +50,10 @@ function startGame(settings) {
   console.log('Game Counts BEFORE : ', settings);
 
   // Reset all elements at the beginning of the game.
-
+  handoutArray.length = 0;
+  gameCounts.resetCounts();
   gameCounts.resetPlayerCards();
   gameCounts.resetDealerCards();
-  gameCounts.resetCounts();
 
   dealCards(handoutArray, fullCardDeck);
 }
