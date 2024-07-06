@@ -169,7 +169,7 @@ function dealCards(handOutArr, deck) {
   let i = 1;
   // Player and dealer cards
   do {
-    const oneCard = dealANewCard();
+    const oneCard = dealRandomCardNumber();
 
     // Check is the random number in our array.
     const isElExist = isElInArray(oneCard, handOutArr);
@@ -182,32 +182,21 @@ function dealCards(handOutArr, deck) {
 
     handOutArr.push(oneCard);
 
-    // // If the number is odd than push it to the player cards array
-    // if (!isElExist && i % 2 !== 0) {
-    //   handOutArr.push(oneCard);
-    //   // If the number is even than push it to the dealer cards array
-    // } else if (!isElExist && i % 2 === 0) {
-    // } else {
-    //   continue;
-    // }
-
     // Condition i < 5 because we need to init array with 4 elements.
     i += 1;
   } while (i < 5);
 
   console.log(handOutArr);
-  handOutArr.forEach((item, index) => {
-    if (index % 2 === 0) {
-      gameCounts.setPlayerCard(deck[item]);
-    } else {
-      gameCounts.setDealerCard(deck[item]);
-    }
-  });
+  // If the number is odd than push it to the player cards array otherwise push to dealer cards array
+  // If the number is even than push it to the dealer cards array
+  handOutArr.forEach((item, index) =>
+    gameCounts[index % 2 === 0 ? 'setPlayerCard' : 'setDealerCard'](deck[item])
+  );
   console.log(gameCounts.getPlayerCards());
   console.log(gameCounts.getDealerCards());
 }
 
-function dealANewCard() {
+function dealRandomCardNumber() {
   return Math.floor(Math.random() * 52);
 }
 
