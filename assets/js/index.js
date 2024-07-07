@@ -1,5 +1,5 @@
 import { gameCounts } from './gameCounts.js';
-import { defaultSettings } from './settings.js';
+import { defaultGameSettings } from './settings.js';
 import {
   buildDeck,
   dealCards,
@@ -7,25 +7,27 @@ import {
   showCard,
 } from './utils.js';
 
-import { btnDisabled } from './ui.js';
+import { bodyStyle, btnDisabled, refs } from './ui.js';
 
 // Object with all links to elements
 
-const refs = {
-  btnsSection: document.getElementById('buttons'),
-  playerScore: document.getElementById('player-score'),
-  dealerScore: document.getElementById('dealer-score'),
-  dealerWins: document.getElementById('dealer-wins'),
-  playerWins: document.getElementById('player-wins'),
-  form: document.getElementById('form'),
-};
+// const refs = {
+//   btnsSection: document.getElementById('buttons'),
+//   playerScore: document.getElementById('player-score'),
+//   dealerScore: document.getElementById('dealer-score'),
+//   dealerWins: document.getElementById('dealer-wins'),
+//   playerWins: document.getElementById('player-wins'),
+//   form: document.getElementById('form'),
+// };
 
 refs.btnsSection.addEventListener('click', btnSelect);
 
-const fullCardDeck = buildDeck(defaultSettings);
+const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
+
+bodyStyle();
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
