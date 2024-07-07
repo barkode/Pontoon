@@ -1,5 +1,5 @@
 // Game counts object
-export const gameCounts = {
+const gameCounts = {
   counts: [0, 0],
   playerCards: [],
   dealerCards: [],
@@ -85,3 +85,5 @@ export const gameCounts = {
     this.playerName = '';
   },
 };
+
+export { gameCounts };
