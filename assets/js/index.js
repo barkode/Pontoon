@@ -7,35 +7,26 @@ import {
   showCard,
 } from './utils.js';
 
+import { btnDisabled } from './ui.js';
+
 // Object with all links to elements
 
 const refs = {
   btnsSection: document.getElementById('buttons'),
-  startBtn: document.getElementById('start'),
-  hitBtn: document.getElementById('hit'),
-  standBtn: document.getElementById('stand'),
-  winTxt: document.getElementById('win'),
-  loseTxt: document.getElementById('lose'),
+  // startBtn: document.getElementById('start'),
+  // hitBtn: document.getElementById('hit'),
+  // standBtn: document.getElementById('stand'),
+  playerScore: document.getElementById('player-score'),
+  dealerScore: document.getElementById('dealer-score'),
+  dealerWins: document.getElementById('dealer-wins'),
+  playerWins: document.getElementById('player-wins'),
   form: document.getElementById('form'),
 };
 
 refs.btnsSection.addEventListener('click', btnSelect);
 
-// refs.startBtn.addEventListener('click', e => {
-//   console.log('START BUTTON:');
-//   startGame(gameCounts);
-// });
-// refs.hitBtn.addEventListener('click', e => {
-//   console.log('HIT BUTTON: ');
-//   playerHit(gameCounts);
-// });
-// refs.standBtn.addEventListener('click', e => {
-//   console.log('STAND BUTTON: ');
-//   playerStand(gameCounts);
-// });
-
 const fullCardDeck = buildDeck(defaultSettings);
-console.log('FULL DECK OF CARDS : ', fullCardDeck);
+// console.log('FULL DECK OF CARDS : ', fullCardDeck);
 const handoutArray = [];
 gameCounts.resetCounts();
 
@@ -44,8 +35,6 @@ function btnSelect(evt) {
     return;
   }
 
-  console.log(evt);
-  console.log(evt.target.dataset.action);
   const action = evt.target.dataset.action;
   switch (action) {
     case 'start':
@@ -70,16 +59,19 @@ function startGame(prefs) {
   handoutArray.length = 0;
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
-  console.log(refs.hitBtn.attributes);
 
   dealCards(handoutArray, fullCardDeck);
 
-  refs.hitBtn.disabled = false;
-  refs.standBtn.disabled = false;
-  refs.startBtn.disabled = true;
+  btnDisabled({ start: true, hit: false, stand: false });
+  // refs.hitBtn.disabled = false;
+  // refs.standBtn.disabled = false;
+  // refs.startBtn.disabled = true;
 
-  console.log('PLAYER SUM : ', prefs.getPlayerSum());
-  console.log('DEALER SUM : ', prefs.getDealerSum());
+  refs.playerScore.textContent = prefs.getPlayerScore();
+  refs.dealerScore.textContent = prefs.getDealerScore();
+
+  console.log('PLAYER SUM : ', prefs.getPlayerScore());
+  console.log('DEALER SUM : ', prefs.getDealerScore());
 }
 
 /**
@@ -113,16 +105,23 @@ function playerHit(prefs) {
     handoutArray.push(oneCard);
 
     prefs.setPlayerCard(showCard(oneCard, fullCardDeck));
+    refs.playerScore.textContent = prefs.getPlayerScore();
+
     console.log('ADD CARD TO PLAYER : ', prefs.getPlayerCards());
-    console.log('TOTAL SUM : ', prefs.getPlayerSum());
+    console.log('TOTAL SUM : ', prefs.getPlayerScore());
 
     // If the sum of the cards exceeds 21, then the player lost.
 
-    if (prefs.getPlayerSum() > 21) {
-      alert(`SORRY. BUT ${prefs.getPlayerSum()} IS TO MUCH ;(((`);
-      prefs.setLoseCount();
-      console.log(prefs.getLoseCount());
-      refs.loseTxt.textContent = prefs.getLoseCount();
+    if (prefs.getPlayerScore() > 21) {
+      alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
+
+      prefs.setDealerWinCount();
+      refs.dealerWins.textContent = prefs.getDealerWinCount();
+
+      console.log(prefs.getDealerWinCount());
+
+      btnDisabled({ start: false, hit: true, stand: true });
+
       break;
     }
     // finish loop when the length of the array will be +1 element
@@ -131,16 +130,17 @@ function playerHit(prefs) {
 
 function playerStand(prefs) {
   // / Initialization of a variable to add another card to an array of dealer
-  const i = prefs.getDealerCards().length;
-  // const sum = prefs.getDealerSum();
 
+  btnDisabled({ start: true, hit: true, stand: true });
+
+  const i = prefs.getDealerCards().length;
   // Check if there is a values in array. If not - then return
   if (i === 0) {
     return;
   }
 
   do {
-    if (prefs.getDealerSum() >= 17) {
+    if (prefs.getDealerScore() >= 17) {
       break;
     }
 
@@ -156,22 +156,43 @@ function playerStand(prefs) {
     }
 
     prefs.setDealerCard(showCard(oneCard, fullCardDeck));
+    refs.dealerScore.textContent = prefs.getDealerScore();
 
     console.log(showCard(oneCard, fullCardDeck));
-    console.log('DEALER SUM : ', prefs.getDealerCards());
+    console.log('DEALER SUM : ', prefs.getDealerScore());
 
     // If the sum of the cards exceeds 21, then the player lost.
 
-    if (prefs.getDealerSum() > 21) {
-      alert(`SORRY. BUT ${prefs.getDealerSum()} IS TO MUCH ;(((`);
-      break;
+    if (prefs.getDealerScore() > 21) {
+      alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
+
+      prefs.setPlayerWinCount();
+      refs.playerWins.textContent = prefs.getPlayerWinCount();
+
+      btnDisabled({ start: false, hit: true, stand: true });
+
+      return;
     }
     // finish loop when the length of the array will be +1 element
-  } while (prefs.getDealerSum() < 21);
+  } while (prefs.getDealerScore() < 21);
+
+  btnDisabled({ start: false, hit: true, stand: true });
+
+  if (prefs.getDealerScore() > prefs.getPlayerScore()) {
+    alert('Dealer WINS');
+    prefs.setDealerWinCount();
+    refs.dealerWins.textContent = prefs.getDealerWinCount();
+  } else {
+    alert('YOU WIN');
+    prefs.setPlayerWinCount();
+    refs.playerWins.textContent = prefs.getPlayerWinCount();
+  }
 
   console.log(
     `STOP : ${
-      prefs.getDealerSum() > prefs.getPlayerSum() ? 'DEALER WIN' : 'PLAYER WIN'
+      prefs.getDealerScore() > prefs.getPlayerScore()
+        ? 'DEALER WIN'
+        : 'PLAYER WIN'
     }`
   );
 }

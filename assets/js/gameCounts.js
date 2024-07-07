@@ -5,19 +5,19 @@ export const gameCounts = {
   dealerCards: [],
   playerName: '',
 
-  getWinCount() {
+  getPlayerWinCount() {
     return this.counts[0];
   },
 
-  setWinCount() {
+  setPlayerWinCount() {
     this.counts[0] += 1;
   },
 
-  getLoseCount() {
+  getDealerWinCount() {
     return this.counts[1];
   },
 
-  setLoseCount() {
+  setDealerWinCount() {
     this.counts[1] += 1;
   },
 
@@ -25,7 +25,7 @@ export const gameCounts = {
     this.counts = [0, 0];
   },
   // Sum player points
-  getPlayerSum() {
+  getPlayerScore() {
     const { playerCards } = this;
     const isAce = playerCards.map(({ card }) => card).includes('a');
     if (!isAce) {
@@ -37,7 +37,7 @@ export const gameCounts = {
     );
   },
   // Sum dealer points
-  getDealerSum() {
+  getDealerScore() {
     const { dealerCards } = this;
     const isAce = dealerCards.map(({ card }) => card).includes('a');
     if (!isAce) {
