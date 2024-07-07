@@ -26,21 +26,36 @@
     <div id="root">
       <form id="form">
         <input type="text" id="name" name="name" />
-        <button type="button" data-action="submit">Confirm</button>
+        <button type="button" name="submit" data-action="submit">
+          Confirm
+        </button>
       </form>
       <section id="buttons">
-        <button id="start" type="button" data-action="start">START</button>
-        <button id="hit" type="button" data-action="hit" disabled>HIT</button>
-        <button id="stand" type="button" data-action="stand" disabled>
+        <button id="start" type="button" name="start" data-action="start">
+          START
+        </button>
+        <button id="hit" type="button" name="hit" data-action="hit" disabled>
+          HIT
+        </button>
+        <button
+          id="stand"
+          type="button"
+          name="stand"
+          data-action="stand"
+          disabled>
           STAND
         </button>
       </section>
     </div>
     <ul>
-      <li>Player score: <span id="player-score">0</span></li>
-      <li>Dealer score: <span id="dealer-score">0</span></li>
-      <li>Player wins: <span id="player-wins">0</span></li>
-      <li>Dealer wins: <span id="dealer-wins">0</span></li>
+      <li>Greetings <span id="player-name">player</span></li>
+      <li>
+        Your score:
+        <span id="player-score">0</span> point(s)
+      </li>
+      <li>Dealer score: <span id="dealer-score">0</span> point(s)</li>
+      <li>Your win: <span id="player-wins">0</span> time(s)</li>
+      <li>Dealer wins: <span id="dealer-wins">0</span> time(s)</li>
     </ul>
     <script src="./assets/js/index.js" type="module"></script>
   </body>

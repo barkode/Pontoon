@@ -1,5 +1,6 @@
 import { gameCounts } from './gameCounts.js';
 import { defaultGameSettings } from './settings.js';
+import { btnDisabled, refs } from './ui.js';
 import {
   buildDeck,
   dealCards,
@@ -7,27 +8,12 @@ import {
   showCard,
 } from './utils.js';
 
-import { bodyStyle, btnDisabled, refs } from './ui.js';
-
-// Object with all links to elements
-
-// const refs = {
-//   btnsSection: document.getElementById('buttons'),
-//   playerScore: document.getElementById('player-score'),
-//   dealerScore: document.getElementById('dealer-score'),
-//   dealerWins: document.getElementById('dealer-wins'),
-//   playerWins: document.getElementById('player-wins'),
-//   form: document.getElementById('form'),
-// };
-
-refs.btnsSection.addEventListener('click', btnSelect);
+refs.rootDiv.addEventListener('click', btnSelect);
 
 const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
-
-bodyStyle();
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
@@ -48,9 +34,22 @@ function btnSelect(evt) {
       console.log('STAND BUTTON: ');
       playerStand(gameCounts);
       break;
+    case 'submit':
+      console.log('SUBMIT BUTTON: ');
+      storePlayerName(evt, gameCounts);
+      break;
     default:
       break;
   }
+}
+
+function storePlayerName(evt, prefs) {
+  const playerName = refs.form.elements.name.value;
+  prefs.setPlayerName(playerName);
+
+  refs.form.style.display = 'none';
+  refs.playerName.textContent = prefs.getPlayerName();
+  console.log(prefs.getPlayerName());
 }
 
 function startGame(prefs) {

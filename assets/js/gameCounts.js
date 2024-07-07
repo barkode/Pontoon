@@ -3,7 +3,7 @@ const gameCounts = {
   counts: [0, 0],
   playerCards: [],
   dealerCards: [],
-  playerName: '',
+  playerName: 'PLAYER',
 
   getPlayerWinCount() {
     return this.counts[0];
@@ -79,10 +79,6 @@ const gameCounts = {
 
   setPlayerName(newName) {
     this.playerName = newName;
-  },
-
-  resetPlayerName() {
-    this.playerName = '';
   },
 };
 

@@ -1,5 +1,8 @@
+// Object with all links to elements
+
 const refs = {
-  // btnsSection: document.getElementById('buttons'),
+  rootDiv: document.getElementById('root'),
+  btnsSection: document.getElementById('buttons'),
   startBtn: document.getElementById('start'),
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
@@ -8,10 +11,19 @@ const refs = {
   dealerWins: document.getElementById('dealer-wins'),
   playerWins: document.getElementById('player-wins'),
   form: document.getElementById('form'),
+  playerName: document.getElementById('player-name'),
 };
 
-export function btnDisabled({ start, hit, stand }) {
+function btnDisabled({ start, hit, stand }) {
   refs.startBtn.disabled = start;
   refs.hitBtn.disabled = hit;
   refs.standBtn.disabled = stand;
 }
+
+function bodyStyle() {
+  console.log(document.body);
+}
+
+function drawCard() {}
+
+export { bodyStyle, btnDisabled, drawCard, refs };
