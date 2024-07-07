@@ -1,6 +1,6 @@
 // Game counts object
 export const gameCounts = {
-  counts: [],
+  counts: [0, 0],
   playerCards: [],
   dealerCards: [],
   playerName: '',
@@ -9,20 +9,20 @@ export const gameCounts = {
     return this.counts[0];
   },
 
-  setWinCount(newCount) {
-    this.counts[0] = newCount;
+  setWinCount() {
+    this.counts[0] += 1;
   },
 
   getLoseCount() {
     return this.counts[1];
   },
 
-  setLoseCount(newCount) {
-    this.counts[1] = newCount;
+  setLoseCount() {
+    this.counts[1] += 1;
   },
 
   resetCounts() {
-    this.counts = [];
+    this.counts = [0, 0];
   },
 
   getPlayerSum() {

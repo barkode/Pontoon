@@ -10,21 +10,23 @@ import {
 // Buttons
 
 const refs = {
-  startButton: document.getElementById('start'),
-  hitButton: document.getElementById('hit'),
-  standButton: document.getElementById('stand'),
+  startBtn: document.getElementById('start'),
+  hitBtn: document.getElementById('hit'),
+  standBtn: document.getElementById('stand'),
+  winBtn: document.getElementById('win'),
+  loseBtn: document.getElementById('lose'),
   form: document.getElementById('form'),
 };
 
-refs.startButton.addEventListener('click', e => {
+refs.startBtn.addEventListener('click', e => {
   console.log('START BUTTON:');
   startGame(gameCounts);
 });
-refs.hitButton.addEventListener('click', e => {
+refs.hitBtn.addEventListener('click', e => {
   console.log('HIT BUTTON: ');
   playerHit(gameCounts);
 });
-refs.standButton.addEventListener('click', e => {
+refs.standBtn.addEventListener('click', e => {
   console.log('STAND BUTTON: ');
   playerStand(gameCounts);
 });
@@ -32,11 +34,11 @@ refs.standButton.addEventListener('click', e => {
 const fullCardDeck = buildDeck(defaultSettings);
 console.log('FULL DECK OF CARDS : ', fullCardDeck);
 const handoutArray = [];
+gameCounts.resetCounts();
 
 function startGame(prefs) {
   // Reset all elements at the beginning of the game.
   handoutArray.length = 0;
-  prefs.resetCounts();
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
 
@@ -84,6 +86,9 @@ function playerHit(prefs) {
 
     if (prefs.getPlayerSum() > 21) {
       alert(`SORRY. BUT ${prefs.getPlayerSum()} IS TO MUCH ;(((`);
+      prefs.setLoseCount();
+      console.log(prefs.getLoseCount());
+      refs.loseBtn.textContent = prefs.getLoseCount();
       break;
     }
     // finish loop when the length of the array will be +1 element
