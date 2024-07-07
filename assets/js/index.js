@@ -13,9 +13,6 @@ import { btnDisabled } from './ui.js';
 
 const refs = {
   btnsSection: document.getElementById('buttons'),
-  // startBtn: document.getElementById('start'),
-  // hitBtn: document.getElementById('hit'),
-  // standBtn: document.getElementById('stand'),
   playerScore: document.getElementById('player-score'),
   dealerScore: document.getElementById('dealer-score'),
   dealerWins: document.getElementById('dealer-wins'),
@@ -26,7 +23,7 @@ const refs = {
 refs.btnsSection.addEventListener('click', btnSelect);
 
 const fullCardDeck = buildDeck(defaultSettings);
-// console.log('FULL DECK OF CARDS : ', fullCardDeck);
+
 const handoutArray = [];
 gameCounts.resetCounts();
 
@@ -57,15 +54,13 @@ function btnSelect(evt) {
 function startGame(prefs) {
   // Reset all elements at the beginning of the game.
   handoutArray.length = 0;
+
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
 
   dealCards(handoutArray, fullCardDeck);
 
   btnDisabled({ start: true, hit: false, stand: false });
-  // refs.hitBtn.disabled = false;
-  // refs.standBtn.disabled = false;
-  // refs.startBtn.disabled = true;
 
   refs.playerScore.textContent = prefs.getPlayerScore();
   refs.dealerScore.textContent = prefs.getDealerScore();
@@ -73,13 +68,6 @@ function startGame(prefs) {
   console.log('PLAYER SUM : ', prefs.getPlayerScore());
   console.log('DEALER SUM : ', prefs.getDealerScore());
 }
-
-/**
- *The feature accepts an array with settings
- * Adds the card to playing
- * Checks the amount of cards from the player in his hands.
- * If the sum is more than 21 then completes the work.
- */
 
 function playerHit(prefs) {
   // Initialization of a variable to add another card to an array of player
