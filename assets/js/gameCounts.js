@@ -24,7 +24,7 @@ export const gameCounts = {
   resetCounts() {
     this.counts = [0, 0];
   },
-
+  // Sum player points
   getPlayerSum() {
     const { playerCards } = this;
     const isAce = playerCards.map(({ card }) => card).includes('a');
@@ -36,7 +36,7 @@ export const gameCounts = {
       0
     );
   },
-
+  // Sum dealer points
   getDealerSum() {
     const { dealerCards } = this;
     const isAce = dealerCards.map(({ card }) => card).includes('a');

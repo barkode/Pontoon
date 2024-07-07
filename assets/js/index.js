@@ -7,9 +7,10 @@ import {
   showCard,
 } from './utils.js';
 
-// Buttons
+// Object with all links to elements
 
 const refs = {
+  btnsSection: document.getElementById('buttons'),
   startBtn: document.getElementById('start'),
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
@@ -18,23 +19,51 @@ const refs = {
   form: document.getElementById('form'),
 };
 
-refs.startBtn.addEventListener('click', e => {
-  console.log('START BUTTON:');
-  startGame(gameCounts);
-});
-refs.hitBtn.addEventListener('click', e => {
-  console.log('HIT BUTTON: ');
-  playerHit(gameCounts);
-});
-refs.standBtn.addEventListener('click', e => {
-  console.log('STAND BUTTON: ');
-  playerStand(gameCounts);
-});
+refs.btnsSection.addEventListener('click', btnSelect);
+
+// refs.startBtn.addEventListener('click', e => {
+//   console.log('START BUTTON:');
+//   startGame(gameCounts);
+// });
+// refs.hitBtn.addEventListener('click', e => {
+//   console.log('HIT BUTTON: ');
+//   playerHit(gameCounts);
+// });
+// refs.standBtn.addEventListener('click', e => {
+//   console.log('STAND BUTTON: ');
+//   playerStand(gameCounts);
+// });
 
 const fullCardDeck = buildDeck(defaultSettings);
 console.log('FULL DECK OF CARDS : ', fullCardDeck);
 const handoutArray = [];
 gameCounts.resetCounts();
+
+function btnSelect(evt) {
+  if (evt.target.nodeName !== 'BUTTON') {
+    return;
+  }
+
+  console.log(evt);
+  console.log(evt.target.dataset.action);
+  const action = evt.target.dataset.action;
+  switch (action) {
+    case 'start':
+      console.log('START BUTTON:');
+      startGame(gameCounts);
+      break;
+    case 'hit':
+      console.log('HIT BUTTON: ');
+      playerHit(gameCounts);
+      break;
+    case 'stand':
+      console.log('STAND BUTTON: ');
+      playerStand(gameCounts);
+      break;
+    default:
+      break;
+  }
+}
 
 function startGame(prefs) {
   // Reset all elements at the beginning of the game.
