@@ -13,8 +13,8 @@ const refs = {
   startBtn: document.getElementById('start'),
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
-  winBtn: document.getElementById('win'),
-  loseBtn: document.getElementById('lose'),
+  winTxt: document.getElementById('win'),
+  loseTxt: document.getElementById('lose'),
   form: document.getElementById('form'),
 };
 
@@ -41,8 +41,13 @@ function startGame(prefs) {
   handoutArray.length = 0;
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
+  console.log(refs.hitBtn.attributes);
 
   dealCards(handoutArray, fullCardDeck);
+
+  refs.hitBtn.disabled = false;
+  refs.standBtn.disabled = false;
+  refs.startBtn.disabled = true;
 
   console.log('PLAYER SUM : ', prefs.getPlayerSum());
   console.log('DEALER SUM : ', prefs.getDealerSum());
@@ -88,7 +93,7 @@ function playerHit(prefs) {
       alert(`SORRY. BUT ${prefs.getPlayerSum()} IS TO MUCH ;(((`);
       prefs.setLoseCount();
       console.log(prefs.getLoseCount());
-      refs.loseBtn.textContent = prefs.getLoseCount();
+      refs.loseTxt.textContent = prefs.getLoseCount();
       break;
     }
     // finish loop when the length of the array will be +1 element
