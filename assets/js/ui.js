@@ -1,7 +1,7 @@
 // Object with all links to elements
 
 const refs = {
-  rootDiv: document.getElementById('root'),
+  rootDiv: document.querySelector('main'),
   btnsSection: document.getElementById('buttons'),
   startBtn: document.getElementById('start'),
   hitBtn: document.getElementById('hit'),
