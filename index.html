@@ -23,13 +23,8 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div id="root">
-      <form id="form">
-        <input type="text" id="name" name="name" />
-        <button type="button" name="submit" data-action="submit">
-          Confirm
-        </button>
-      </form>
+    <header></header>
+    <main id="root">
       <section id="buttons">
         <button id="start" type="button" name="start" data-action="start">
           START
@@ -46,17 +41,75 @@
           STAND
         </button>
       </section>
+      <section>
+        <ul class="scores-list">
+          <li>Greetings <span id="player-name">player</span></li>
+          <li>
+            Your score:
+            <span id="player-score">0</span> point(s)
+          </li>
+          <li>Dealer score: <span id="dealer-score">0</span> point(s)</li>
+          <li>Your win: <span id="player-wins">0</span> time(s)</li>
+          <li>Dealer wins: <span id="dealer-wins">0</span> time(s)</li>
+        </ul>
+      </section>
+      <section>
+        <div class="playing-field">
+          <div class="visual-division"></div>
+        </div>
+      </section>
+      <!-- <section>
+        <img src="assets/images/center-logo-blur.png" />
+      </section> -->
+    </main>
+    <footer></footer>
+    <div class="backdrop">
+      <div class="modal">
+        <h1>Hello my dear, friend</h1>
+        <p>Allow me to invite you to play in BlackJack</p>
+        <p>Please tell us your name and I'll get started.</p>
+        <form id="form">
+          <input type="text" id="name" name="name" />
+          <button type="button" name="submit" data-action="submit">
+            Let's play
+          </button>
+        </form>
+        <h2>Rules:</h2>
+        <ul>
+          <li>
+            Objective: Reach a hand value closer to 21 than the dealer without
+            exceeding 21.
+          </li>
+          <li>
+            Card Values: Number cards are worth their face value, face cards
+            (Jack, Queen, King) are worth 10, and Aces can be 1 or 11.
+          </li>
+          <li>
+            Blackjack: An Ace and a 10-value card on the initial deal is a
+            Blackjack, the highest hand.
+          </li>
+          <li>
+            Initial Deal: Each player and the dealer receive two cards, with the
+            dealer having one card face up.
+          </li>
+          <li>
+            Player Choices: Players can "Hit" to take another card or "Stand" to
+            keep their current hand.
+          </li>
+          <li>
+            Dealer Rules: The dealer must hit until their hand value is 17 or
+            higher.
+          </li>
+          <li>
+            Winning: Players win if their hand is closer to 21 than the dealer's
+            without busting.
+          </li>
+          <li>
+            Bust: If a player's hand exceeds 21, they bust and lose the round.
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul>
-      <li>Greetings <span id="player-name">player</span></li>
-      <li>
-        Your score:
-        <span id="player-score">0</span> point(s)
-      </li>
-      <li>Dealer score: <span id="dealer-score">0</span> point(s)</li>
-      <li>Your win: <span id="player-wins">0</span> time(s)</li>
-      <li>Dealer wins: <span id="dealer-wins">0</span> time(s)</li>
-    </ul>
     <script src="./assets/js/index.js" type="module"></script>
   </body>
 </html>
