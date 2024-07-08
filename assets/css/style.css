@@ -1,0 +1,89 @@
+/* Reset all paddings and margins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+/* Classes - Community */
+
+.visual-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+/* Body styles */
+
+body {
+  background-color: #696969;
+}
+#root {
+  width: 100%;
+  max-width: 500px;
+  height: 100vh;
+  position: relative;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  background: rgb(11, 125, 11);
+  background: linear-gradient(
+    0deg,
+    rgba(11, 125, 11, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.scores-list {
+  color: antiquewhite;
+}
+
+.playing-field {
+  width: 100%;
+  /* position: relative; */
+}
+
+.playing-field::after {
+  content: '';
+  position: absolute;
+  bottom: 5vh;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  border-bottom: 4px solid #696969;
+  border-radius: 50%;
+}
