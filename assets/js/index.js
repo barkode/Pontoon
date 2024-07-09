@@ -1,6 +1,6 @@
 import { gameCounts } from './gameCounts.js';
 import { defaultGameSettings } from './settings.js';
-import { btnDisabled, drawAllCards, refs } from './ui.js';
+import { btnDisabled, drawAllCards, refs, startTime } from './ui.js';
 import {
   buildDeck,
   dealCards,
@@ -16,18 +16,6 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
-
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  // m = checkTime(m);
-  // s = checkTime(s);
-  document.querySelector('.clock').textContent = h + ':' + m + ':' + s;
-  setTimeout(startTime, 1000);
-  return { h, m, s };
-}
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {

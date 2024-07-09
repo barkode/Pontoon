@@ -14,6 +14,7 @@ const refs = {
   playerName: document.getElementById('player-name'),
   playerField: document.getElementById('player-field'),
   dealerField: document.getElementById('dealer-field'),
+  clockString: document.querySelector('.clock'),
 };
 
 function btnDisabled({ start, hit, stand }) {
@@ -37,4 +38,29 @@ function drawAllCards(cardArray) {
   return cardArray.reduce((acc, card) => (acc += drawCard(card)), '');
 }
 
-export { bodyStyle, btnDisabled, drawAllCards, drawCard, refs };
+/**
+ *  The feature takes out time to the field in the header
+ */
+
+// Used code from https://www.w3schools.com/js/tryit.asp?filename=tryjs_timing_clock
+function startTime() {
+  const today = new Date();
+  let h = pad(today.getHours());
+  let m = pad(today.getMinutes());
+  let s = pad(today.getSeconds());
+
+  refs.clockString.innerHTML = h + ':' + m + ':' + s;
+
+  setTimeout(startTime, 1000);
+}
+
+/**
+ *  The function accepts the number.Converts the number to a term.
+ *  Adds to the beginning of 0 if the number is less than 2 characters.
+ */
+
+function pad(value) {
+  return String(value).padStart(2, '0');
+}
+
+export { bodyStyle, btnDisabled, drawAllCards, drawCard, refs, startTime };
