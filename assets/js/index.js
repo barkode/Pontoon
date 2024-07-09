@@ -14,7 +14,6 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
-refs.
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
@@ -60,6 +59,8 @@ function startGame(prefs, refs) {
 
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
+  refs.playerField.innerHTML = '';
+  refs.dealerField.innerHTML = '';
 
   dealCards(handoutArray, fullCardDeck);
 
@@ -67,11 +68,14 @@ function startGame(prefs, refs) {
 
   console.log(drawAllCards(prefs.getPlayerCards()));
 
-  refs.playerField.insertAdjacentHTML(
-    'beforeend',
-    drawAllCards(prefs.getPlayerCards())
-  );
+  // Show player cards
+  refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
 
+  // Show dealer cards
+
+  refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
+
+  // Player and Dealer scores
   refs.playerScore.textContent = prefs.getPlayerScore();
   refs.dealerScore.textContent = prefs.getDealerScore();
 
@@ -102,10 +106,12 @@ function playerHit(prefs) {
 
     handoutArray.push(oneCard);
 
+    // Add card to player array
     prefs.setPlayerCard(showCard(oneCard, fullCardDeck));
 
+    // Show player cards
     refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
-
+    // Show player score
     refs.playerScore.textContent = prefs.getPlayerScore();
 
     console.log('ADD CARD TO PLAYER : ', prefs.getPlayerCards());
