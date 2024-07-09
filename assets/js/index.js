@@ -8,12 +8,26 @@ import {
   showCard,
 } from './utils.js';
 
+document.addEventListener('DOMContentLoaded', startTime, { once: true });
+
 refs.rootDiv.addEventListener('click', btnSelect);
 
 const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
+
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  // m = checkTime(m);
+  // s = checkTime(s);
+  document.querySelector('.clock').textContent = h + ':' + m + ':' + s;
+  setTimeout(startTime, 1000);
+  return { h, m, s };
+}
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
