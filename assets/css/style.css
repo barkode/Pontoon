@@ -177,7 +177,7 @@ main {
 }
 
 .draw-card-item:not(:last-child) {
-  margin-right: 1rem;
+  margin-right: -5rem;
 }
 
 #buttons {
@@ -193,18 +193,7 @@ main {
   align-items: center;
 }
 
-/* .buttons-list-item > button {
-  border-radius: 4px;
-  text-align: center;
-  font-size: 18px;
-  padding: 0.5rem;
-} */
-
-/* <!-- HTML !-->
-<button class="button-6" role="button">Button 6</button> */
-/* ! ========================================= */
-
-/* CSS */
+/* Buttons code was used from https://getcssscan.com/css-buttons-examples. */
 .buttons-list-item > button {
   align-items: center;
   background-color: #ffffff;
@@ -262,10 +251,14 @@ main {
   cursor: default;
 }
 
-/* ! ================================== */
-
 .buttons-list-item:not(:last-child) {
   margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .draw-card-item:not(:last-child) {
+    margin-right: 1rem;
+  }
 }
 
 /* ! hide score list */
