@@ -44,8 +44,9 @@ function btnSelect(evt) {
 }
 
 function storePlayerName(_, prefs, refs) {
-  const playerName = refs.form.elements.name.value;
-  prefs.setPlayerName(playerName);
+  const playerNameFromForm = refs.form.elements.name.value;
+
+  prefs.setPlayerName(playerNameFromForm);
 
   refs.form.style.display = 'none';
   refs.playerName.textContent = prefs.getPlayerName();
@@ -63,17 +64,18 @@ function startGame(prefs, refs) {
   refs.dealerField.innerHTML = '';
 
   dealCards(handoutArray, fullCardDeck);
+  console.log(prefs.getPlayerCards());
+  console.log(prefs.getDealerCards());
 
   btnDisabled({ start: true, hit: false, stand: false });
 
   console.log(drawAllCards(prefs.getPlayerCards()));
 
+  // Show dealer cards
+  refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
+
   // Show player cards
   refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
-
-  // Show dealer cards
-
-  refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
 
   // Player and Dealer scores
   refs.playerScore.textContent = prefs.getPlayerScore();
