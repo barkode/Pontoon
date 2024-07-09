@@ -156,3 +156,20 @@ main {
 .rules-list-item:not(:last-child) {
   padding-bottom: 8px;
 }
+
+.player-field,
+.dealer-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.draw-card-item {
+  width: 150px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.draw-card-item:not(:last-child) {
+  margin-right: 1rem;
+}

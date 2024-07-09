@@ -74,6 +74,7 @@ export function buildDeck(settings) {
 
   // Add values to cards
   fullDeck.forEach(el => {
+    el.description = ``;
     if (!isNaN(el.card)) {
       el.value = Number(el.card);
     } else if (el.card === 'a') {

@@ -1,6 +1,6 @@
 import { gameCounts } from './gameCounts.js';
 import { defaultGameSettings } from './settings.js';
-import { btnDisabled, refs } from './ui.js';
+import { btnDisabled, drawAllCards, refs } from './ui.js';
 import {
   buildDeck,
   dealCards,
@@ -14,6 +14,7 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
+refs.
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
@@ -24,35 +25,36 @@ function btnSelect(evt) {
   switch (action) {
     case 'start':
       console.log('START BUTTON:');
-      startGame(gameCounts);
+      startGame(gameCounts, refs);
       break;
     case 'hit':
       console.log('HIT BUTTON: ');
-      playerHit(gameCounts);
+      playerHit(gameCounts, refs);
       break;
     case 'stand':
       console.log('STAND BUTTON: ');
-      playerStand(gameCounts);
+      playerStand(gameCounts, refs);
       break;
     case 'submit':
       console.log('SUBMIT BUTTON: ');
-      storePlayerName(evt, gameCounts);
+      storePlayerName(evt, gameCounts, refs);
       break;
     default:
       break;
   }
 }
 
-function storePlayerName(evt, prefs) {
+function storePlayerName(_, prefs, refs) {
   const playerName = refs.form.elements.name.value;
   prefs.setPlayerName(playerName);
 
   refs.form.style.display = 'none';
   refs.playerName.textContent = prefs.getPlayerName();
+
   console.log(prefs.getPlayerName());
 }
 
-function startGame(prefs) {
+function startGame(prefs, refs) {
   // Reset all elements at the beginning of the game.
   handoutArray.length = 0;
 
@@ -62,6 +64,13 @@ function startGame(prefs) {
   dealCards(handoutArray, fullCardDeck);
 
   btnDisabled({ start: true, hit: false, stand: false });
+
+  console.log(drawAllCards(prefs.getPlayerCards()));
+
+  refs.playerField.insertAdjacentHTML(
+    'beforeend',
+    drawAllCards(prefs.getPlayerCards())
+  );
 
   refs.playerScore.textContent = prefs.getPlayerScore();
   refs.dealerScore.textContent = prefs.getDealerScore();
@@ -94,6 +103,9 @@ function playerHit(prefs) {
     handoutArray.push(oneCard);
 
     prefs.setPlayerCard(showCard(oneCard, fullCardDeck));
+
+    refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
+
     refs.playerScore.textContent = prefs.getPlayerScore();
 
     console.log('ADD CARD TO PLAYER : ', prefs.getPlayerCards());
@@ -102,8 +114,6 @@ function playerHit(prefs) {
     // If the sum of the cards exceeds 21, then the player lost.
 
     if (prefs.getPlayerScore() > 21) {
-      alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
-
       prefs.setDealerWinCount();
       refs.dealerWins.textContent = prefs.getDealerWinCount();
 
@@ -111,6 +121,7 @@ function playerHit(prefs) {
 
       btnDisabled({ start: false, hit: true, stand: true });
 
+      alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
       break;
     }
     // finish loop when the length of the array will be +1 element

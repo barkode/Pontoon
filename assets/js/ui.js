@@ -12,6 +12,8 @@ const refs = {
   playerWins: document.getElementById('player-wins'),
   form: document.getElementById('form'),
   playerName: document.getElementById('player-name'),
+  playerField: document.getElementById('player-field'),
+  dealerField: document.getElementById('dealer-field'),
 };
 
 function btnDisabled({ start, hit, stand }) {
@@ -24,6 +26,15 @@ function bodyStyle() {
   console.log(document.body);
 }
 
-function drawCard() {}
+function drawCard(item) {
+  const { card, type, value, imgFront, imgBack } = item;
+  return `<div class="draw-card-item">
+  <img src=${imgFront} alt=${card}-${type}-${value}/>
+  </div>`;
+}
 
-export { bodyStyle, btnDisabled, drawCard, refs };
+function drawAllCards(cardArray) {
+  return cardArray.reduce((acc, card) => (acc += drawCard(card)), '');
+}
+
+export { bodyStyle, btnDisabled, drawAllCards, drawCard, refs };
