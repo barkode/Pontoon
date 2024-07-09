@@ -113,6 +113,7 @@ function playerHit(prefs) {
 
     // Show player cards
     refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
+
     // Show player score
     refs.playerScore.textContent = prefs.getPlayerScore();
 
@@ -164,6 +165,10 @@ function playerStand(prefs) {
     }
 
     prefs.setDealerCard(showCard(oneCard, fullCardDeck));
+
+    // Show dealer cards
+    refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
+
     refs.dealerScore.textContent = prefs.getDealerScore();
 
     console.log(showCard(oneCard, fullCardDeck));
@@ -172,10 +177,11 @@ function playerStand(prefs) {
     // If the sum of the cards exceeds 21, then the player lost.
 
     if (prefs.getDealerScore() > 21) {
-      alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
-
       prefs.setPlayerWinCount();
+
       refs.playerWins.textContent = prefs.getPlayerWinCount();
+
+      alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
 
       btnDisabled({ start: false, hit: true, stand: true });
 
@@ -187,13 +193,17 @@ function playerStand(prefs) {
   btnDisabled({ start: false, hit: true, stand: true });
 
   if (prefs.getDealerScore() > prefs.getPlayerScore()) {
-    alert('Dealer WINS');
     prefs.setDealerWinCount();
+
     refs.dealerWins.textContent = prefs.getDealerWinCount();
+
+    alert('Dealer WINS');
   } else {
-    alert('YOU WIN');
     prefs.setPlayerWinCount();
+
     refs.playerWins.textContent = prefs.getPlayerWinCount();
+
+    alert('YOU WIN');
   }
 
   console.log(

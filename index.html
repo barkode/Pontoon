@@ -24,38 +24,11 @@
   </head>
   <body>
     <!-- <div class="wrap"> -->
-    <div class="wrap-main">
-      <header></header>
+    <div class="wrap">
+      <header class="header">
+        <div class="clock"></div>
+      </header>
       <main class="main">
-        <section id="buttons">
-          <ul>
-            <li>
-              <button id="start" type="button" name="start" data-action="start">
-                START
-              </button>
-            </li>
-            <li>
-              <button
-                id="hit"
-                type="button"
-                name="hit"
-                data-action="hit"
-                disabled>
-                HIT
-              </button>
-            </li>
-            <li>
-              <button
-                id="stand"
-                type="button"
-                name="stand"
-                data-action="stand"
-                disabled>
-                STAND
-              </button>
-            </li>
-          </ul>
-        </section>
         <section>
           <ul class="scores-list">
             <li>Greetings <span id="player-name">player</span></li>
@@ -74,9 +47,35 @@
             <div class="player-field" id="player-field"></div>
           </div>
         </section>
-        <!-- <section>
-        <img src="assets/images/center-logo-blur.png" />
-      </section> -->
+        <section id="buttons">
+          <ul class="buttons-list">
+            <li class="buttons-list-item">
+              <button id="start" type="button" name="start" data-action="start">
+                START
+              </button>
+            </li>
+            <li class="buttons-list-item">
+              <button
+                id="hit"
+                type="button"
+                name="hit"
+                data-action="hit"
+                disabled>
+                HIT
+              </button>
+            </li>
+            <li class="buttons-list-item">
+              <button
+                id="stand"
+                type="button"
+                name="stand"
+                data-action="stand"
+                disabled>
+                STAND
+              </button>
+            </li>
+          </ul>
+        </section>
       </main>
       <footer></footer>
     </div>

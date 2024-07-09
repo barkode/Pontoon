@@ -1,6 +1,6 @@
 import { gameCounts } from './gameCounts.js';
 
-export function dealCards(handOutArr, deck) {
+function dealCards(handOutArr, deck) {
   // Init counter. Counter used for init quantity of elements in array
   let i = 1;
   // Player and dealer cards
@@ -57,7 +57,7 @@ function shuffleDeck(array) {
  * Return array of object. Each object is a cart with type, value, name and image;
  * Shuffles data and arrays.
  */
-export function buildDeck(settings) {
+function buildDeck(settings) {
   const { cards, cardType, deckName, imgFormat } = settings;
   const fullDeck = [];
   // Create full deck with 52 cards.
@@ -94,7 +94,7 @@ export function buildDeck(settings) {
  * Returns the object that is replacing the map from the deck.
  */
 
-export function showCard(number, deck) {
+function showCard(number, deck) {
   return deck[number];
 }
 
@@ -102,6 +102,8 @@ export function showCard(number, deck) {
  * The function returns random number from 0 to 52.
  */
 
-export function dealRandomCardNumber() {
+function dealRandomCardNumber() {
   return Math.floor(Math.random() * 52);
 }
+
+export { buildDeck, dealCards, dealRandomCardNumber, showCard };
