@@ -18,6 +18,7 @@ const refs = {
   dealerField: document.getElementById('dealer-field'),
   clockString: document.querySelector('.clock'),
   backdrop: document.querySelector('.backdrop'),
+  checkInput: document.querySelector('.confirm-input'),
 };
 
 function btnDisabled({ start, hit, stand, rules }) {

@@ -106,4 +106,8 @@ function dealRandomCardNumber() {
   return Math.floor(Math.random() * 52);
 }
 
-export { buildDeck, dealCards, dealRandomCardNumber, showCard };
+function toggleModal() {
+  refs.modal.classList.toggle('is-hidden');
+}
+
+export { buildDeck, dealCards, dealRandomCardNumber, showCard, toggleModal };

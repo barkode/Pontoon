@@ -25,9 +25,7 @@ function checkLocalPlayer() {
 
   if (!Boolean(playerFromStorage)) {
     refs.backdrop.classList.remove('is-hidden');
-    document.addEventListener('input', checkPlayerName, {
-      once: true,
-    });
+    document.addEventListener('input', checkPlayerName);
     return;
   }
 
@@ -42,14 +40,13 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 const localStat = getScoreFromLocalStorage();
-console.log(localStat);
+// console.log(localStat);
 
+// Check if are values in local storage.
 if (Boolean(localStat.playerScore) || Boolean(localStat.dealerScore)) {
-  console.log('BFFFFFF');
   refs.playerWins.textContent = localStat.playerScore;
   refs.dealerWins.textContent = localStat.dealerScore;
 } else {
-  console.log('AFFFFF');
   gameCounts.resetCounts();
 }
 
@@ -61,6 +58,7 @@ function checkPlayerName(evt) {
   const isWriting = evt.target.className;
   if (isWriting === 'form-input') {
     refs.form.elements.submit.disabled = false;
+    document.removeEventListener('input', checkPlayerName);
   }
 }
 
@@ -100,6 +98,9 @@ function btnSelect(evt) {
 
 function storePlayerName(_, prefs, refs) {
   const playerNameFromForm = refs.form.elements.name.value.trim();
+
+  const inputCheck = document.querySelector('.confirm-input');
+  console.log(inputCheck.checked);
 
   prefs.setPlayerName(playerNameFromForm);
 
