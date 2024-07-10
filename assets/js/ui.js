@@ -7,8 +7,8 @@ const refs = {
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
   rulesBtn: document.getElementById('rules'),
-  playerScore: document.getElementById('player-score'),
-  dealerScore: document.getElementById('dealer-score'),
+  // playerScore: document.getElementById('player-score'),
+  // dealerScore: document.getElementById('dealer-score'),
   dealerWins: document.getElementById('dealer-wins'),
   playerWins: document.querySelector('.player-wins'),
   form: document.querySelector('.form'),
@@ -18,8 +18,21 @@ const refs = {
   dealerField: document.getElementById('dealer-field'),
   clockString: document.querySelector('.clock'),
   backdrop: document.querySelector('.backdrop'),
-  checkInput: document.querySelector('.confirm-input'),
+  checkAge: document.querySelector('.confirm-input'),
+  errorName: document.querySelector('.error-name'),
+  errorAge: document.querySelector('.error-age'),
+  modalInfo: document.querySelector('.modal-info'),
+  modalInfoTxt: document.querySelector('.modal-info-root'),
 };
+
+function showInfoMessage(text, refs) {
+  const isClassHidden = refs.modalInfo.classList.contains('is-hidden');
+  if (isClassHidden) {
+    refs.modalInfo.classList.remove('is-hidden');
+  }
+  refs.modalInfoTxt.innerHTML = '';
+  refs.modalInfoTxt.innerHTML = text;
+}
 
 function btnDisabled({ start, hit, stand, rules }) {
   refs.startBtn.disabled = start;
@@ -75,6 +88,10 @@ function getScoreFromLocalStorage() {
   return { playerScore, dealerScore };
 }
 
+function toggleModalInfo(refs) {
+  refs.modalInfo.classList.toggle('is-hidden');
+}
+
 export {
   btnDisabled,
   drawAllCards,
@@ -82,5 +99,7 @@ export {
   getScoreFromLocalStorage,
   refs,
   setScoreToLocalStorage,
+  showInfoMessage,
   startTime,
+  toggleModalInfo,
 };

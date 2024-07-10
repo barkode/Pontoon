@@ -6,7 +6,9 @@ import {
   getScoreFromLocalStorage,
   refs,
   setScoreToLocalStorage,
+  showInfoMessage,
   startTime,
+  toggleModalInfo,
 } from './ui.js';
 import {
   buildDeck,
@@ -14,6 +16,8 @@ import {
   dealRandomCardNumber,
   showCard,
 } from './utils.js';
+
+import { rules } from './infoMessages.js';
 
 document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
   once: true,
@@ -89,7 +93,11 @@ function btnSelect(evt) {
       break;
     case 'rules':
       console.log('RULES BUTTON: ');
-      // storePlayerName(evt, gameCounts, refs);
+      showInfoMessage(rules, refs);
+      break;
+    case 'closeModal':
+      console.log('CLOSE MODAL BUTTON: ');
+      toggleModalInfo(refs);
       break;
     default:
       break;
@@ -97,7 +105,19 @@ function btnSelect(evt) {
 }
 
 function storePlayerName(_, prefs, refs) {
+  const isAgeConfirmed = refs.checkAge.checked;
   const playerNameFromForm = refs.form.elements.name.value.trim();
+  refs.errorName.textContent = '';
+  refs.errorAge.textContent = '';
+
+  if (!Boolean(playerNameFromForm)) {
+    refs.errorName.textContent = 'enter your name';
+    return;
+  }
+  if (!isAgeConfirmed) {
+    refs.errorAge.textContent = 'You must be 18+ years';
+    return;
+  }
 
   const inputCheck = document.querySelector('.confirm-input');
   console.log(inputCheck.checked);
@@ -115,6 +135,11 @@ function storePlayerName(_, prefs, refs) {
 function startGame(prefs, refs) {
   // Reset all elements at the beginning of the game.
   handoutArray.length = 0;
+  const isModalInfoHidden = refs.modalInfo.classList.contains('is-hidden');
+
+  if (!isModalInfoHidden) {
+    refs.modalInfo.classList.add('is-hidden');
+  }
 
   prefs.resetPlayerCards();
   prefs.resetDealerCards();
@@ -122,6 +147,7 @@ function startGame(prefs, refs) {
   refs.dealerField.innerHTML = '';
 
   dealCards(handoutArray, fullCardDeck);
+
   console.log(prefs.getPlayerCards());
   console.log(prefs.getDealerCards());
 

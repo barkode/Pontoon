@@ -35,6 +35,7 @@
               <span class="player-wins">0</span> TIME(S)
             </li>
             <li>DEALER WINS: <span id="dealer-wins">0</span> TIME(S)</li>
+            <li><input type="button" value="CLEAR STATS" /></li>
           </ul>
         </section>
         <section class="play-section">
@@ -116,6 +117,7 @@
           </div>
           <form class="form">
             <label class="form-field">
+              <span class="error-name"></span>
               <input
                 type="text"
                 name="name"
@@ -148,12 +150,32 @@
           </ul>
 
           <label class="isEighteen">
+            <span class="error-age"></span>
             <input type="checkbox" name="isEighteen" class="confirm-input" />
             Are you already 18 years old?</label
           >
         </div>
       </div>
     </div>
+
+    <!-- Modal Inform Window -->
+    <!-- <div class="backdrop"> -->
+    <div class="modal modal-info is-hidden">
+      <button
+        type="button"
+        class="modal-info-close"
+        type="button"
+        name="closeModal"
+        data-action="closeModal">
+        X
+      </button>
+      <div class="modal-info-root">
+        <p class="modal-info-p">Dealer win</p>
+        <p class="modal-info-p">Dealer score:</p>
+        <p class="modal-info-p">Player score:</p>
+      </div>
+    </div>
+    <!-- </div> -->
     <script src="./assets/js/index.js" type="module"></script>
   </body>
 </html>
