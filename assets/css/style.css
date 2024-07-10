@@ -134,6 +134,10 @@ main {
   left: 0;
 }
 
+.player-name {
+  text-transform: uppercase;
+}
+
 .rules-list {
   margin-bottom: 1rem;
 }

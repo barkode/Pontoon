@@ -116,10 +116,6 @@ function startGame(prefs, refs) {
   // Show player cards
   refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
 
-  // Player and Dealer scores
-  refs.playerScore.textContent = prefs.getPlayerScore();
-  refs.dealerScore.textContent = prefs.getDealerScore();
-
   console.log('PLAYER SUM : ', prefs.getPlayerScore());
   console.log('DEALER SUM : ', prefs.getDealerScore());
 }
@@ -154,7 +150,7 @@ function playerHit(prefs) {
     refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
 
     // Show player score
-    refs.playerScore.textContent = prefs.getPlayerScore();
+    // refs.playerScore.textContent = prefs.getPlayerScore();
 
     console.log('ADD CARD TO PLAYER : ', prefs.getPlayerCards());
     console.log('TOTAL SUM : ', prefs.getPlayerScore());
@@ -207,8 +203,6 @@ function playerStand(prefs) {
 
     // Show dealer cards
     refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
-
-    refs.dealerScore.textContent = prefs.getDealerScore();
 
     console.log(showCard(oneCard, fullCardDeck));
     console.log('DEALER SUM : ', prefs.getDealerScore());
