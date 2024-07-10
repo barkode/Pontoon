@@ -1,6 +1,13 @@
 import { gameCounts } from './gameCounts.js';
 import { defaultGameSettings } from './settings.js';
-import { btnDisabled, drawAllCards, refs, startTime } from './ui.js';
+import {
+  btnDisabled,
+  drawAllCards,
+  getScoreFromLocalStorage,
+  refs,
+  setScoreToLocalStorage,
+  startTime,
+} from './ui.js';
 import {
   buildDeck,
   dealCards,
@@ -34,7 +41,18 @@ document.addEventListener('click', btnSelect);
 const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
-gameCounts.resetCounts();
+const localStat = getScoreFromLocalStorage();
+console.log(localStat);
+
+if (Boolean(localStat.playerScore) || Boolean(localStat.dealerScore)) {
+  console.log('BFFFFFF');
+  refs.playerWins.textContent = localStat.playerScore;
+  refs.dealerWins.textContent = localStat.dealerScore;
+} else {
+  console.log('AFFFFF');
+  gameCounts.resetCounts();
+}
+
 btnDisabled({ start: false, hit: true, stand: true, rules: false });
 startTime();
 
@@ -163,6 +181,8 @@ function playerHit(prefs) {
 
       console.log(prefs.getDealerWinCount());
 
+      setScoreToLocalStorage(gameCounts);
+
       btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
       alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
@@ -212,6 +232,8 @@ function playerStand(prefs) {
     if (prefs.getDealerScore() > 21) {
       prefs.setPlayerWinCount();
 
+      setScoreToLocalStorage(gameCounts);
+
       refs.playerWins.textContent = prefs.getPlayerWinCount();
 
       alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
@@ -227,12 +249,14 @@ function playerStand(prefs) {
 
   if (prefs.getDealerScore() > prefs.getPlayerScore()) {
     prefs.setDealerWinCount();
-
+    localStorage.setItem('dealer-score', prefs.getDealerWinCount());
     refs.dealerWins.textContent = prefs.getDealerWinCount();
 
     alert('Dealer WINS');
   } else {
     prefs.setPlayerWinCount();
+
+    setScoreToLocalStorage(gameCounts);
 
     refs.playerWins.textContent = prefs.getPlayerWinCount();
 

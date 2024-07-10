@@ -63,4 +63,23 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 
-export { btnDisabled, drawAllCards, drawCard, refs, startTime };
+function setScoreToLocalStorage(prefs) {
+  localStorage.setItem('player-score', prefs.getPlayerWinCount());
+  localStorage.setItem('dealer-score', prefs.getDealerWinCount());
+}
+
+function getScoreFromLocalStorage() {
+  const playerScore = localStorage.getItem('player-score');
+  const dealerScore = localStorage.getItem('dealer-score');
+  return { playerScore, dealerScore };
+}
+
+export {
+  btnDisabled,
+  drawAllCards,
+  drawCard,
+  getScoreFromLocalStorage,
+  refs,
+  setScoreToLocalStorage,
+  startTime,
+};
