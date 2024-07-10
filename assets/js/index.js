@@ -8,6 +8,10 @@ import {
   showCard,
 } from './utils.js';
 
+document.addEventListener('input', checkPlayerName, {
+  once: true,
+});
+
 document.addEventListener('DOMContentLoaded', startTime, { once: true });
 
 document.addEventListener('click', btnSelect);
@@ -16,6 +20,14 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
+
+// Make button active, when Player starts to write them name.
+function checkPlayerName(evt) {
+  const isWriting = evt.target.className;
+  if (isWriting === 'form-input') {
+    refs.form.elements.submit.disabled = false;
+  }
+}
 
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
@@ -38,7 +50,7 @@ function btnSelect(evt) {
       break;
     case 'submit':
       console.log('SUBMIT BUTTON: ');
-      // storePlayerName(evt, gameCounts, refs);
+      storePlayerName(evt, gameCounts, refs);
       break;
     default:
       break;
@@ -50,7 +62,8 @@ function storePlayerName(_, prefs, refs) {
 
   prefs.setPlayerName(playerNameFromForm);
 
-  refs.form.style.display = 'none';
+  // refs.form.style.display = 'none';
+
   refs.playerName.textContent = prefs.getPlayerName();
 
   console.log(prefs.getPlayerName());
