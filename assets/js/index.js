@@ -8,11 +8,26 @@ import {
   showCard,
 } from './utils.js';
 
-document.addEventListener('input', checkPlayerName, {
+document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
   once: true,
 });
 
-document.addEventListener('DOMContentLoaded', startTime, { once: true });
+function checkLocalPlayer() {
+  const playerFromStorage = localStorage.getItem('player-name');
+  console.log(playerFromStorage);
+
+  if (!Boolean(playerFromStorage)) {
+    refs.backdrop.classList.remove('is-hidden');
+    document.addEventListener('input', checkPlayerName, {
+      once: true,
+    });
+    return;
+  }
+
+  gameCounts.setPlayerName(playerFromStorage);
+  refs.playerName.textContent = gameCounts.getPlayerName();
+  return;
+}
 
 document.addEventListener('click', btnSelect);
 
@@ -20,6 +35,8 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 gameCounts.resetCounts();
+btnDisabled({ start: false, hit: true, stand: true, rules: false });
+startTime();
 
 // Make button active, when Player starts to write them name.
 function checkPlayerName(evt) {
@@ -35,6 +52,8 @@ function btnSelect(evt) {
   }
 
   const action = evt.target.dataset.action;
+  // Select the Action button
+
   switch (action) {
     case 'start':
       console.log('START BUTTON:');
@@ -52,6 +71,10 @@ function btnSelect(evt) {
       console.log('SUBMIT BUTTON: ');
       storePlayerName(evt, gameCounts, refs);
       break;
+    case 'rules':
+      console.log('RULES BUTTON: ');
+      // storePlayerName(evt, gameCounts, refs);
+      break;
     default:
       break;
   }
@@ -62,8 +85,9 @@ function storePlayerName(_, prefs, refs) {
 
   prefs.setPlayerName(playerNameFromForm);
 
-  // refs.form.style.display = 'none';
+  localStorage.setItem('player-name', playerNameFromForm);
 
+  refs.backdrop.classList.add('is-hidden');
   refs.playerName.textContent = prefs.getPlayerName();
 
   console.log(prefs.getPlayerName());
@@ -82,7 +106,7 @@ function startGame(prefs, refs) {
   console.log(prefs.getPlayerCards());
   console.log(prefs.getDealerCards());
 
-  btnDisabled({ start: true, hit: false, stand: false });
+  btnDisabled({ start: true, hit: false, stand: false, rules: false });
 
   console.log(drawAllCards(prefs.getPlayerCards()));
 
@@ -143,7 +167,7 @@ function playerHit(prefs) {
 
       console.log(prefs.getDealerWinCount());
 
-      btnDisabled({ start: false, hit: true, stand: true });
+      btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
       alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
       break;
@@ -155,7 +179,7 @@ function playerHit(prefs) {
 function playerStand(prefs) {
   // / Initialization of a variable to add another card to an array of dealer
 
-  btnDisabled({ start: true, hit: true, stand: true });
+  btnDisabled({ start: true, hit: true, stand: true, rules: false });
 
   const i = prefs.getDealerCards().length;
   // Check if there is a values in array. If not - then return
@@ -198,14 +222,14 @@ function playerStand(prefs) {
 
       alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
 
-      btnDisabled({ start: false, hit: true, stand: true });
+      btnDisabled({ start: false, hit: true, stand: true, rules: true });
 
       return;
     }
     // finish loop when the length of the array will be +1 element
   } while (prefs.getDealerScore() < 21);
 
-  btnDisabled({ start: false, hit: true, stand: true });
+  btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
   if (prefs.getDealerScore() > prefs.getPlayerScore()) {
     prefs.setDealerWinCount();

@@ -28,7 +28,8 @@
         <div class="clock"></div>
       </header>
       <main class="main">
-        <section>
+        <p>DEALER SCORE :</p>
+        <section class="stats">
           <ul class="scores-list">
             <li>Greetings <span id="player-name">player</span></li>
             <li>
@@ -54,7 +55,8 @@
                 type="button"
                 name="start"
                 data-action="start"
-                class="button">
+                class="button start-btn"
+                disabled>
                 START
               </button>
             </li>
@@ -62,9 +64,9 @@
               <button
                 id="hit"
                 type="button"
-                name="hit"
+                name="hit "
                 data-action="hit"
-                class="button"
+                class="button hit-btn"
                 disabled>
                 HIT
               </button>
@@ -75,7 +77,7 @@
                 type="button"
                 name="stand"
                 data-action="stand"
-                class="button"
+                class="button stand-btn"
                 disabled>
                 STAND
               </button>
@@ -85,10 +87,10 @@
                 id="rules"
                 type="button"
                 name="rules"
-                data-action="rules`"
+                data-action="rules"
                 class="button rules-btn"
                 disabled>
-                STAND
+                RULES
               </button>
             </li>
           </ul>
@@ -108,7 +110,7 @@
     </div>
 
     <!-- Welcome pop up window -->
-    <div class="backdrop">
+    <div class="backdrop is-hidden">
       <div class="modal">
         <div class="welcome-container">
           <div class="welcome-header">
@@ -117,21 +119,22 @@
             <p>Please tell us your name and I'll get started.</p>
           </div>
           <form class="form">
-            <div class="form-field">
+            <label class="form-field">
               <input
                 type="text"
                 name="name"
                 class="form-input"
-                id="name"
-                placeholder=""
+                placeholder=" "
                 autocomplete="off" />
-              <label for="name" class="form-label">Name</label>
-            </div>
+              <span class="form-label">Enter your name</span>
+            </label>
+
             <button
               type="button"
               name="submit"
               class="form-button button"
-              data-action="submit">
+              data-action="submit"
+              disabled>
               Lets play
             </button>
           </form>

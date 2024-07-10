@@ -6,25 +6,25 @@ const refs = {
   startBtn: document.getElementById('start'),
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
+  rulesBtn: document.getElementById('rules'),
   playerScore: document.getElementById('player-score'),
   dealerScore: document.getElementById('dealer-score'),
   dealerWins: document.getElementById('dealer-wins'),
   playerWins: document.getElementById('player-wins'),
-  form: document.getElementById('form'),
+  form: document.querySelector('.form'),
+  formInput: document.querySelector('.form-button'),
   playerName: document.getElementById('player-name'),
   playerField: document.getElementById('player-field'),
   dealerField: document.getElementById('dealer-field'),
   clockString: document.querySelector('.clock'),
+  backdrop: document.querySelector('.backdrop'),
 };
 
-function btnDisabled({ start, hit, stand }) {
+function btnDisabled({ start, hit, stand, rules }) {
   refs.startBtn.disabled = start;
   refs.hitBtn.disabled = hit;
   refs.standBtn.disabled = stand;
-}
-
-function bodyStyle() {
-  console.log(document.body);
+  refs.rulesBtn.disabled = rules;
 }
 
 function drawCard(item) {
@@ -63,4 +63,4 @@ function pad(value) {
   return String(value).padStart(2, '0');
 }
 
-export { bodyStyle, btnDisabled, drawAllCards, drawCard, refs, startTime };
+export { btnDisabled, drawAllCards, drawCard, refs, startTime };
