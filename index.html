@@ -49,7 +49,12 @@
         <section id="buttons">
           <ul class="buttons-list">
             <li class="buttons-list-item">
-              <button id="start" type="button" name="start" data-action="start">
+              <button
+                id="start"
+                type="button"
+                name="start"
+                data-action="start"
+                class="button">
                 START
               </button>
             </li>
@@ -59,6 +64,7 @@
                 type="button"
                 name="hit"
                 data-action="hit"
+                class="button"
                 disabled>
                 HIT
               </button>
@@ -69,6 +75,18 @@
                 type="button"
                 name="stand"
                 data-action="stand"
+                class="button"
+                disabled>
+                STAND
+              </button>
+            </li>
+            <li class="buttons-list-item">
+              <button
+                id="rules"
+                type="button"
+                name="rules"
+                data-action="rules`"
+                class="button rules-btn"
                 disabled>
                 STAND
               </button>
@@ -78,7 +96,7 @@
       </main>
       <footer>
         <p class="copyright">
-          Copyright &copy;2024
+          &copy;2024
           <a
             href="https://github.com/barkode/tapandplay"
             target="_blank"
@@ -89,55 +107,51 @@
       </footer>
     </div>
 
-    <div class="backdrop is-hidden">
+    <!-- Welcome pop up window -->
+    <div class="backdrop">
       <div class="modal">
-        <h1>Hello my dear, friend</h1>
-        <p>Allow me to invite you to play in BlackJack</p>
-        <p>Please tell us your name and I'll get started.</p>
-        <form class="form">
-          <input type="text" name="name" class="name-input" />
-          <button
-            type="button"
-            name="submit"
-            class="submit-button"
-            data-action="submit">
-            Let's play
-          </button>
-        </form>
-        <h2 class="rules-header">Rules:</h2>
-        <ul class="rules-list">
-          <li class="rules-list-item">
-            Objective: Reach a hand value closer to 21 than the dealer without
-            exceeding 21.
-          </li>
-          <li class="rules-list-item">
-            Card Values: Number cards are worth their face value, face cards
-            (Jack, Queen, King) are worth 10, and Aces can be 1 or 11.
-          </li>
-          <li class="rules-list-item">
-            Blackjack: An Ace and a 10-value card on the initial deal is a
-            Blackjack, the highest hand.
-          </li>
-          <li class="rules-list-item">
-            Initial Deal: Each player and the dealer receive two cards, with the
-            dealer having one card face up.
-          </li>
-          <li class="rules-list-item">
-            Player Choices: Players can "Hit" to take another card or "Stand" to
-            keep their current hand.
-          </li>
-          <li class="rules-list-item">
-            Dealer Rules: The dealer must hit until their hand value is 17 or
-            higher.
-          </li>
-          <li class="rules-list-item">
-            Winning: Players win if their hand is closer to 21 than the dealer's
-            without busting.
-          </li>
-          <li class="rules-list-item">
-            Bust: If a player's hand exceeds 21, they bust and lose the round.
-          </li>
-        </ul>
+        <div class="welcome-container">
+          <div class="welcome-header">
+            <h1>Hello my dear, friend</h1>
+            <p>Allow me to invite you to play in BlackJack</p>
+            <p>Please tell us your name and I'll get started.</p>
+          </div>
+          <form class="form">
+            <div class="form-field">
+              <input
+                type="text"
+                name="name"
+                class="form-input"
+                id="name"
+                placeholder=""
+                autocomplete="off" />
+              <label for="name" class="form-label">Name</label>
+            </div>
+            <button
+              type="button"
+              name="submit"
+              class="form-button button"
+              data-action="submit">
+              Lets play
+            </button>
+          </form>
+          <h2 class="rules-header">Short Rules:</h2>
+          <ul class="rules-list">
+            <li class="rules-list-item">
+              <span class="rules-head">Objective:</span> Reach a hand value
+              closer to 21 than the dealer without exceeding 21.
+            </li>
+            <li class="rules-list-item">
+              <span class="rules-head">Card Values:</span> Number cards are
+              worth their face value, face cards (Jack, Queen, King) are worth
+              10, and Aces can be 1 or 11.
+            </li>
+          </ul>
+          <div class="">
+            <input type="checkbox" name="isEighteen" id="isEighteen" />
+            <label for="isEighteen">Are you already 18 years old?</label>
+          </div>
+        </div>
       </div>
     </div>
     <script src="./assets/js/index.js" type="module"></script>

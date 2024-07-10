@@ -10,7 +10,7 @@ import {
 
 document.addEventListener('DOMContentLoaded', startTime, { once: true });
 
-refs.rootDiv.addEventListener('click', btnSelect);
+document.addEventListener('click', btnSelect);
 
 const fullCardDeck = buildDeck(defaultGameSettings);
 
@@ -38,7 +38,7 @@ function btnSelect(evt) {
       break;
     case 'submit':
       console.log('SUBMIT BUTTON: ');
-      storePlayerName(evt, gameCounts, refs);
+      // storePlayerName(evt, gameCounts, refs);
       break;
     default:
       break;
@@ -46,7 +46,7 @@ function btnSelect(evt) {
 }
 
 function storePlayerName(_, prefs, refs) {
-  const playerNameFromForm = refs.form.elements.name.value;
+  const playerNameFromForm = refs.form.elements.name.value.trim();
 
   prefs.setPlayerName(playerNameFromForm);
 

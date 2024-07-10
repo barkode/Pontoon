@@ -30,7 +30,7 @@ function bodyStyle() {
 function drawCard(item) {
   const { card, type, value, imgFront, imgBack } = item;
   return `<div class="draw-card-item">
-  <img src=${imgFront} alt=${card}-${type}-${value}/>
+  <img src=${imgFront} alt=${card}-${type}-${value} width="120"/>
   </div>`;
 }
 
