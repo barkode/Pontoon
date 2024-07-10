@@ -7,8 +7,6 @@ const refs = {
   hitBtn: document.getElementById('hit'),
   standBtn: document.getElementById('stand'),
   rulesBtn: document.getElementById('rules'),
-  // playerScore: document.getElementById('player-score'),
-  // dealerScore: document.getElementById('dealer-score'),
   dealerWins: document.getElementById('dealer-wins'),
   playerWins: document.querySelector('.player-wins'),
   form: document.querySelector('.form'),
@@ -32,6 +30,23 @@ function showInfoMessage(text, refs) {
   }
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
+}
+
+function showInfoWinMsg(text, refs, prefs) {
+  const isClassHidden = refs.modalInfo.classList.contains('is-hidden');
+  if (isClassHidden) {
+    refs.modalInfo.classList.remove('is-hidden');
+  }
+  refs.modalInfoTxt.innerHTML = '';
+  refs.modalInfoTxt.innerHTML = text;
+  console.log(prefs.getDealerScore());
+  console.log(refs.modalDealerScore);
+  document.querySelector('.modal-dealer-score').textContent =
+    prefs.getDealerScore();
+  document.querySelector('.modal-player-score').textContent =
+    prefs.getPlayerScore();
+  document.querySelector('.modal-player-name').textContent =
+    prefs.getPlayerName();
 }
 
 function btnDisabled({ start, hit, stand, rules }) {
@@ -100,6 +115,7 @@ export {
   refs,
   setScoreToLocalStorage,
   showInfoMessage,
+  showInfoWinMsg,
   startTime,
   toggleModalInfo,
 };

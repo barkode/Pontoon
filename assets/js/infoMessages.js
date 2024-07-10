@@ -1,8 +1,13 @@
 // There are messages for the information window
 
-const dealerWin = ``;
+const dealerWin = `<p class="modal-info-p">Dealer WIN</p>
+        <p class="modal-info-p">Dealer score: <span class="modal-dealer-score">999</span></p>
+        <p class="modal-info-p">
+        <span class="modal-player-name">PLAYER</span> score: <span class="modal-player-score">999</span></p>`;
 
-const playerWin = ``;
+const playerWin = `<p class="modal-info-p"><span class="modal-player-name">PLAYER</span> WIN</p>
+        <p class="modal-info-p">Dealer score: <span class="modal-dealer-score">999</span></p>
+        <p class="modal-info-p"><span class="modal-player-name">PLAYER</span> score: <span class="modal-player-score">999</span></p>`;
 
 const rules = `
   <h1 class="rules-header">Rules:</h1>
@@ -38,6 +43,7 @@ const rules = `
       Bust: If a player's hand exceeds 21, they bust and lose the round.
     </li>
   </ul>
+  <button type="button" name="clearData" data-action="clearData" class="clearData-btn">Delete all info</button>
 `;
 
 export { dealerWin, playerWin, rules };

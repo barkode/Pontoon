@@ -106,4 +106,14 @@ function dealRandomCardNumber() {
   return Math.floor(Math.random() * 52);
 }
 
-export { buildDeck, dealCards, dealRandomCardNumber, showCard };
+function clearLocalStorage() {
+  localStorage.clear();
+}
+
+export {
+  buildDeck,
+  clearLocalStorage,
+  dealCards,
+  dealRandomCardNumber,
+  showCard,
+};

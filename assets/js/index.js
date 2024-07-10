@@ -7,17 +7,19 @@ import {
   refs,
   setScoreToLocalStorage,
   showInfoMessage,
+  showInfoWinMsg,
   startTime,
   toggleModalInfo,
 } from './ui.js';
 import {
   buildDeck,
+  clearLocalStorage,
   dealCards,
   dealRandomCardNumber,
   showCard,
 } from './utils.js';
 
-import { rules } from './infoMessages.js';
+import { dealerWin, playerWin, rules } from './infoMessages.js';
 
 document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
   once: true,
@@ -98,6 +100,10 @@ function btnSelect(evt) {
     case 'closeModal':
       console.log('CLOSE MODAL BUTTON: ');
       toggleModalInfo(refs);
+      break;
+    case 'clearData':
+      console.log('CLEAR DATA');
+      clearLocalStorage();
       break;
     default:
       break;
@@ -212,7 +218,7 @@ function playerHit(prefs) {
 
       btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
-      alert(`SORRY. BUT ${prefs.getPlayerScore()} IS TO MUCH ;(((`);
+      showInfoWinMsg(dealerWin, refs, gameCounts);
       break;
     }
     // finish loop when the length of the array will be +1 element
@@ -263,7 +269,7 @@ function playerStand(prefs) {
 
       refs.playerWins.textContent = prefs.getPlayerWinCount();
 
-      alert(`SORRY. BUT ${prefs.getDealerScore()} IS TO MUCH ;(((`);
+      showInfoWinMsg(playerWin, refs, gameCounts);
 
       btnDisabled({ start: false, hit: true, stand: true, rules: true });
 
@@ -279,7 +285,7 @@ function playerStand(prefs) {
     localStorage.setItem('dealer-score', prefs.getDealerWinCount());
     refs.dealerWins.textContent = prefs.getDealerWinCount();
 
-    alert('Dealer WINS');
+    showInfoWinMsg(dealerWin, refs, gameCounts);
   } else {
     prefs.setPlayerWinCount();
 
@@ -287,7 +293,7 @@ function playerStand(prefs) {
 
     refs.playerWins.textContent = prefs.getPlayerWinCount();
 
-    alert('YOU WIN');
+    showInfoWinMsg(playerWin, refs, gameCounts);
   }
 
   console.log(
