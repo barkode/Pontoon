@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Meta tags for search engine -->
+    <meta
+      name="description"
+      content="You can always relax and play in a semi -playing game Blackjack" />
+    <meta
+      name="keywords"
+      content="Card game, Black Jack, Jack, 21, Twenty one, casino, online game" />
     <title>Tap&Play</title>
     <!-- Favicon -->
     <link
@@ -29,6 +36,7 @@
       </header>
       <main class="main">
         <section class="stats">
+          <h2 class="visual-hidden">Game statistics</h2>
           <ul class="scores-list">
             <li>
               <span class="player-name">PLAYER</span> WIN:
@@ -38,12 +46,14 @@
           </ul>
         </section>
         <section class="play-section">
+          <h2 class="visual-hidden">Playing field</h2>
           <div class="playing-field" id="playing-field">
             <div class="dealer-field" id="dealer-field"></div>
             <div class="player-field" id="player-field"></div>
           </div>
         </section>
         <section id="buttons" class="buttons">
+          <h2 class="visual-hidden">Buttons</h2>
           <ul class="buttons-list">
             <li class="buttons-list-item">
               <button
@@ -162,7 +172,6 @@
       <button
         type="button"
         class="modal-info-close"
-        type="button"
         name="closeModal"
         data-action="closeModal">
         X
