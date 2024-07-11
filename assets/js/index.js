@@ -7,8 +7,8 @@ import {
   getScoreFromLocalStorage,
   refs,
   setScoreToLocalStorage,
-  showInfoMessage,
   showInfoWinMsg,
+  showRulesMessage,
   startTime,
   toggleButtonSection,
   toggleModalInfo,
@@ -72,7 +72,7 @@ function btnSelect(evt) {
       storePlayerName(evt, gameCounts, refs);
       break;
     case 'rules':
-      showInfoMessage(rules, refs);
+      showRulesMessage(rules, refs);
       break;
     case 'closeModal':
       toggleModalInfo(refs);

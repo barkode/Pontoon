@@ -24,14 +24,14 @@ const refs = {
   statSection: document.querySelector('.stats'),
 };
 
-function showInfoMessage(text, refs) {
+function showRulesMessage(text, refs) {
   const isClassHidden = refs.modalInfo.classList.contains('is-hidden');
 
   if (isClassHidden) {
     refs.modalInfo.classList.remove('is-hidden');
     refs.modalInfo.classList.add('modal-rules');
   }
-
+  refs.modalInfo.classList.add('modal-rules');
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
 }
@@ -155,8 +155,8 @@ export {
   getScoreFromLocalStorage,
   refs,
   setScoreToLocalStorage,
-  showInfoMessage,
   showInfoWinMsg,
+  showRulesMessage,
   startTime,
   toggleButtonSection,
   toggleModalInfo,
