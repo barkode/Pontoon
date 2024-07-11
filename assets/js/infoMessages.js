@@ -43,7 +43,7 @@ const rules = `
       <span>Bust:</span> If a player's hand exceeds 21, they bust and lose the round.
     </li>
   </ul>
-  <button type="button" name="clearData" data-action="clearData" class="clearData-btn button">Delete all info</button>
+  <button type="button" name="clearData" data-action="clearData" class="clearData-btn button">Clear all statistic data</button>
 `;
 
 export { dealerWin, playerWin, rules };
