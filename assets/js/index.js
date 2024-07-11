@@ -2,6 +2,7 @@ import { gameCounts } from './gameCounts.js';
 import { defaultGameSettings } from './settings.js';
 import {
   btnDisabled,
+  dealerFirstHand,
   drawAllCards,
   getScoreFromLocalStorage,
   refs,
@@ -149,9 +150,9 @@ function startGame(prefs, refs) {
   btnDisabled({ start: true, hit: false, stand: false, rules: false });
 
   // Show dealer cards
-  console.log(prefs.getDealerCards());
-  refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
-  console.log(refs.dealerField.firstChild);
+
+  refs.dealerField.innerHTML = dealerFirstHand(prefs.getDealerCards());
+
   // Show player cards
   refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
 }

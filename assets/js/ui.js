@@ -54,6 +54,21 @@ function btnDisabled({ start, hit, stand, rules }) {
   refs.rulesBtn.disabled = rules;
 }
 
+function dealerFirstHand(array) {
+  return array.map((item, index) => {
+    const { card, type, value, imgFront, imgBack } = item;
+    if (index === 0) {
+      return `<div class="draw-card-item">
+  <img src=${imgBack} alt="Dealer card" width="120"/>
+  </div>`;
+    } else {
+      return `<div class="draw-card-item">
+  <img src=${imgFront} alt=${card}-${type}-${value} width="120"/>
+  </div>`;
+    }
+  });
+}
+
 function drawCard(item) {
   const { card, type, value, imgFront, imgBack } = item;
   return `<div class="draw-card-item">
@@ -107,6 +122,7 @@ function toggleModalInfo(refs) {
 
 export {
   btnDisabled,
+  dealerFirstHand,
   drawAllCards,
   drawCard,
   getScoreFromLocalStorage,

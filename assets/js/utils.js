@@ -62,7 +62,7 @@ function buildDeck(settings) {
         card,
         type,
         imgFront: `./assets/images/${deckName}/${deckName}-${card}-${type[0]}.${imgFormat}`,
-        imgBack: `./assets/images/${deckName}/cardBack.${imgFormat}`,
+        imgBack: `./assets/images/${deckName}/${deckName}-cardBack.${imgFormat}`,
       });
     }
   }
