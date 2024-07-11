@@ -21,6 +21,7 @@ const refs = {
   errorAge: document.querySelector('.error-age'),
   modalInfo: document.querySelector('.modal-info'),
   modalInfoTxt: document.querySelector('.modal-info-root'),
+  statSection: document.querySelector('.stats'),
 };
 
 function showInfoMessage(text, refs) {
@@ -39,12 +40,29 @@ function showInfoWinMsg(text, refs, prefs) {
   }
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
+
   document.querySelector('.modal-dealer-score').textContent =
     prefs.getDealerScore();
   document.querySelector('.modal-player-score').textContent =
     prefs.getPlayerScore();
   document.querySelector('.modal-player-name').textContent =
     prefs.getPlayerName();
+}
+
+function toggleButtonSection({ show }, refs) {
+  if (!show) {
+    refs.btnsSection.classList.add('is-hidden');
+    return;
+  }
+  refs.btnsSection.classList.remove('is-hidden');
+}
+
+function toggleStatisticSection({ show }, refs) {
+  if (!show) {
+    refs.statSection.classList.add('is-hidden');
+    return;
+  }
+  refs.statSection.classList.remove('is-hidden');
 }
 
 function btnDisabled({ start, hit, stand, rules }) {
@@ -131,5 +149,7 @@ export {
   showInfoMessage,
   showInfoWinMsg,
   startTime,
+  toggleButtonSection,
   toggleModalInfo,
+  toggleStatisticSection,
 };

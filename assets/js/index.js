@@ -10,7 +10,9 @@ import {
   showInfoMessage,
   showInfoWinMsg,
   startTime,
+  toggleButtonSection,
   toggleModalInfo,
+  toggleStatisticSection,
 } from './ui.js';
 import {
   buildDeck,
@@ -25,20 +27,6 @@ import { dealerWin, playerWin, rules } from './infoMessages.js';
 document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
   once: true,
 });
-
-function checkLocalPlayer() {
-  const playerFromStorage = localStorage.getItem('player-name');
-
-  if (!Boolean(playerFromStorage)) {
-    refs.backdrop.classList.remove('is-hidden');
-    document.addEventListener('input', checkPlayerName);
-    return;
-  }
-
-  gameCounts.setPlayerName(playerFromStorage);
-  refs.playerName.textContent = gameCounts.getPlayerName();
-  return;
-}
 
 document.addEventListener('click', btnSelect);
 
@@ -57,15 +45,6 @@ if (Boolean(localStat.playerScore) || Boolean(localStat.dealerScore)) {
 
 btnDisabled({ start: false, hit: true, stand: true, rules: false });
 startTime();
-
-// Make button active, when Player starts to write them name.
-function checkPlayerName(evt) {
-  const isWriting = evt.target.className;
-  if (isWriting === 'form-input') {
-    refs.form.elements.submit.disabled = false;
-    document.removeEventListener('input', checkPlayerName);
-  }
-}
 
 /**
  * The feature chooses an action depending on the event on the buttont on the button
@@ -121,12 +100,14 @@ function storePlayerName(_, prefs, refs) {
     return;
   }
 
-  const inputCheck = document.querySelector('.confirm-input');
+  // const inputCheck = document.querySelector('.confirm-input');
 
   prefs.setPlayerName(playerNameFromForm);
 
   localStorage.setItem('player-name', playerNameFromForm);
 
+  toggleStatisticSection({ show: true }, refs);
+  toggleButtonSection({ show: true }, refs);
   refs.backdrop.classList.add('is-hidden');
   refs.playerName.textContent = prefs.getPlayerName();
 }
@@ -269,5 +250,33 @@ function playerStand(prefs) {
     refs.playerWins.textContent = prefs.getPlayerWinCount();
 
     showInfoWinMsg(playerWin, refs, gameCounts);
+  }
+}
+
+function checkLocalPlayer() {
+  const playerFromStorage = localStorage.getItem('player-name');
+
+  if (!Boolean(playerFromStorage)) {
+    refs.backdrop.classList.remove('is-hidden');
+
+    toggleButtonSection({ show: false }, refs);
+    toggleStatisticSection({ show: false }, refs);
+
+    document.addEventListener('input', checkPlayerName);
+    return;
+  }
+
+  gameCounts.setPlayerName(playerFromStorage);
+  refs.playerName.textContent = gameCounts.getPlayerName();
+
+  return;
+}
+
+// Make button active, when Player starts to write them name.
+function checkPlayerName(evt) {
+  const isWriting = evt.target.className;
+  if (isWriting === 'form-input') {
+    refs.form.elements.submit.disabled = false;
+    document.removeEventListener('input', checkPlayerName);
   }
 }

@@ -271,7 +271,9 @@ footer {
 }
 
 .backdrop.is-hidden,
-.modal-info.is-hidden {
+.modal-info.is-hidden,
+.buttons.is-hidden,
+.stats.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -284,8 +286,9 @@ footer {
   top: 50%;
   left: 50%;
   padding: 24px;
-  width: 100%;
   max-width: 500px;
+  width: 100vw;
+  height: 100vh;
 
   text-align: left;
   background: #fcfcfcaa;
@@ -314,6 +317,8 @@ footer {
 }
 
 .form {
+  flex-wrap: wrap;
+  gap: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,6 +405,10 @@ footer {
 @media screen and (min-width: 768px) {
   .draw-card-item:not(:last-child) {
     margin-right: 0.5rem;
+  }
+  .form {
+    flex-wrap: nowrap;
+    gap: 0;
   }
 }
 
