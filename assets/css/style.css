@@ -65,6 +65,7 @@ body {
     rgba(11, 125, 11, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
+  background-repeat: no-repeat;
 }
 
 .wrap {
@@ -86,7 +87,6 @@ header {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: center;
-  /* background-color: tomato; */
 }
 
 .clock {
@@ -114,7 +114,6 @@ main {
 
 .playing-field {
   width: 100%;
-  /* position: relative; */
 }
 
 .playing-field::after {
@@ -139,11 +138,15 @@ main {
 }
 
 .rules-list {
-  margin-bottom: 1rem;
+  margin: 0.5rem;
 }
 
 .rules-list-item:not(:last-child) {
   padding-bottom: 0.5rem;
+}
+
+.rules-list-item > span {
+  font-weight: 900;
 }
 
 .player-field,
@@ -316,7 +319,7 @@ footer {
 
 .rules-header {
   text-align: left;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .form {
@@ -385,19 +388,32 @@ footer {
   width: 80vw;
 }
 
-.modal-rules {
+.modal-info.modal-rules {
   background: #fcfcfc;
-  height: 50vw;
-  width: 80vw;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .modal-info-close {
   position: absolute;
-  top: 16px;
-  right: 25px;
-  font-size: 20px;
+  top: 25px;
+  right: 40px;
+  font-size: 25px;
   background-color: transparent;
   border: none;
+}
+
+.modal-info-root {
+  padding-top: 3rem;
+}
+
+.modal-info.modal-rules .modal-info-root {
+  padding-top: 0;
+  padding-bottom: 2rem;
 }
 
 .modal-info-p {
@@ -408,6 +424,12 @@ footer {
 
 .rules-head {
   font-weight: 900;
+}
+
+.clearData-btn {
+  margin: 0 auto;
+  display: block;
+  height: 2rem;
 }
 
 /* Screens with 768px and up*/
@@ -456,6 +478,25 @@ footer {
     position: absolute;
     top: 0;
     right: 0;
+  }
+  .modal-info-root {
+    padding-top: 0;
+  }
+
+  .modal-info {
+    width: 40vw;
+  }
+  .modal-info.modal-rules {
+    height: auto;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 24px;
+  }
+  .modal-info.modal-rules .modal-info-root {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
