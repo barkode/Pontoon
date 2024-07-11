@@ -171,14 +171,16 @@ main {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 12%;
-  padding-bottom: 1rem;
+  bottom: 3rem;
 }
 
 .buttons-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+  width: 100vw;
 }
 
 /* Buttons code was used from https://getcssscan.com/css-buttons-examples. */
@@ -238,10 +240,6 @@ main {
 
   cursor: default;
   transform: translateY(0);
-}
-
-.buttons-list-item:not(:last-child) {
-  margin-right: 1.5rem;
 }
 
 footer {
@@ -428,6 +426,15 @@ footer {
     padding-left: 0;
     padding-right: 0;
   }
+
+  .buttons-list {
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+
+  #buttons {
+    bottom: 6rem;
+  }
 }
 
 /* Screens with resolution 992px and up */
@@ -435,5 +442,9 @@ footer {
 @media screen and (min-width: 992px) {
   .draw-card-item:not(:last-child) {
     margin-right: 1rem;
+  }
+
+  #buttons {
+    bottom: 7rem;
   }
 }
