@@ -39,8 +39,6 @@ function showInfoWinMsg(text, refs, prefs) {
   }
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
-  console.log(prefs.getDealerScore());
-  console.log(refs.modalDealerScore);
   document.querySelector('.modal-dealer-score').textContent =
     prefs.getDealerScore();
   document.querySelector('.modal-player-score').textContent =

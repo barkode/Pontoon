@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
 
 function checkLocalPlayer() {
   const playerFromStorage = localStorage.getItem('player-name');
-  console.log(playerFromStorage);
 
   if (!Boolean(playerFromStorage)) {
     refs.backdrop.classList.remove('is-hidden');
@@ -46,7 +45,6 @@ const fullCardDeck = buildDeck(defaultGameSettings);
 
 const handoutArray = [];
 const localStat = getScoreFromLocalStorage();
-// console.log(localStat);
 
 // Check if are values in local storage.
 if (Boolean(localStat.playerScore) || Boolean(localStat.dealerScore)) {
@@ -68,6 +66,10 @@ function checkPlayerName(evt) {
   }
 }
 
+/**
+ * The feature chooses an action depending on the event on the buttont on the button
+ */
+
 function btnSelect(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
     return;
@@ -78,31 +80,24 @@ function btnSelect(evt) {
 
   switch (action) {
     case 'start':
-      console.log('START BUTTON:');
       startGame(gameCounts, refs);
       break;
     case 'hit':
-      console.log('HIT BUTTON: ');
       playerHit(gameCounts, refs);
       break;
     case 'stand':
-      console.log('STAND BUTTON: ');
       playerStand(gameCounts, refs);
       break;
     case 'submit':
-      console.log('SUBMIT BUTTON: ');
       storePlayerName(evt, gameCounts, refs);
       break;
     case 'rules':
-      console.log('RULES BUTTON: ');
       showInfoMessage(rules, refs);
       break;
     case 'closeModal':
-      console.log('CLOSE MODAL BUTTON: ');
       toggleModalInfo(refs);
       break;
     case 'clearData':
-      console.log('CLEAR DATA');
       clearLocalStorage();
       break;
     default:
@@ -126,7 +121,6 @@ function storePlayerName(_, prefs, refs) {
   }
 
   const inputCheck = document.querySelector('.confirm-input');
-  console.log(inputCheck.checked);
 
   prefs.setPlayerName(playerNameFromForm);
 
@@ -134,8 +128,6 @@ function storePlayerName(_, prefs, refs) {
 
   refs.backdrop.classList.add('is-hidden');
   refs.playerName.textContent = prefs.getPlayerName();
-
-  console.log(prefs.getPlayerName());
 }
 
 function startGame(prefs, refs) {
@@ -154,21 +146,14 @@ function startGame(prefs, refs) {
 
   dealCards(handoutArray, fullCardDeck);
 
-  console.log(prefs.getPlayerCards());
-  console.log(prefs.getDealerCards());
-
   btnDisabled({ start: true, hit: false, stand: false, rules: false });
 
-  console.log(drawAllCards(prefs.getPlayerCards()));
-
   // Show dealer cards
+  console.log(prefs.getDealerCards());
   refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
-
+  console.log(refs.dealerField.firstChild);
   // Show player cards
   refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
-
-  console.log('PLAYER SUM : ', prefs.getPlayerScore());
-  console.log('DEALER SUM : ', prefs.getDealerScore());
 }
 
 function playerHit(prefs) {
@@ -200,19 +185,11 @@ function playerHit(prefs) {
     // Show player cards
     refs.playerField.innerHTML = drawAllCards(prefs.getPlayerCards());
 
-    // Show player score
-    // refs.playerScore.textContent = prefs.getPlayerScore();
-
-    console.log('ADD CARD TO PLAYER : ', prefs.getPlayerCards());
-    console.log('TOTAL SUM : ', prefs.getPlayerScore());
-
     // If the sum of the cards exceeds 21, then the player lost.
 
     if (prefs.getPlayerScore() > 21) {
       prefs.setDealerWinCount();
       refs.dealerWins.textContent = prefs.getDealerWinCount();
-
-      console.log(prefs.getDealerWinCount());
 
       setScoreToLocalStorage(gameCounts);
 
@@ -257,9 +234,6 @@ function playerStand(prefs) {
     // Show dealer cards
     refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
 
-    console.log(showCard(oneCard, fullCardDeck));
-    console.log('DEALER SUM : ', prefs.getDealerScore());
-
     // If the sum of the cards exceeds 21, then the player lost.
 
     if (prefs.getDealerScore() > 21) {
@@ -295,12 +269,4 @@ function playerStand(prefs) {
 
     showInfoWinMsg(playerWin, refs, gameCounts);
   }
-
-  console.log(
-    `STOP : ${
-      prefs.getDealerScore() > prefs.getPlayerScore()
-        ? 'DEALER WIN'
-        : 'PLAYER WIN'
-    }`
-  );
 }

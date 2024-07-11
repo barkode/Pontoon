@@ -22,7 +22,6 @@ function dealCards(handOutArr, deck) {
     i += 1;
   } while (i < 5);
 
-  console.log('ARRAY RANDOM CARDS', handOutArr);
   // If the number is odd than push it to the player cards array otherwise push to dealer cards array
   // If the number is even than push it to the dealer cards array
 
@@ -31,10 +30,6 @@ function dealCards(handOutArr, deck) {
       showCard(item, deck)
     )
   );
-
-  console.log('PLAYER CARDS : ', gameCounts.getPlayerCards());
-  console.log('DEALER CARDS : ', gameCounts.getDealerCards());
-  console.log('OBJECT : '.gameCounts);
 }
 
 /**
