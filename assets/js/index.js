@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', checkLocalPlayer, {
   once: true,
 });
 
-document.addEventListener('click', btnSelect);
+document.addEventListener('click', onButtonClick);
 
 const fullCardDeck = buildDeck(defaultGameSettings);
 
@@ -45,12 +45,11 @@ if (Boolean(localStat.playerScore) || Boolean(localStat.dealerScore)) {
 
 btnDisabled({ start: false, hit: true, stand: true, rules: false });
 startTime();
-
 /**
- * The feature chooses an action depending on the event on the buttont on the button
+ * The feature chooses an action depending on the event on the button
  */
 
-function btnSelect(evt) {
+function onButtonClick(evt) {
   if (evt.target.nodeName !== 'BUTTON') {
     return;
   }
@@ -265,7 +264,7 @@ function checkLocalPlayer() {
     toggleButtonSection({ show: false }, refs);
     toggleStatisticSection({ show: false }, refs);
 
-    document.addEventListener('input', checkPlayerName);
+    document.addEventListener('input', onInputPlayerNameChange);
     return;
   }
 
@@ -276,10 +275,10 @@ function checkLocalPlayer() {
 }
 
 // Make button active, when Player starts to write them name.
-function checkPlayerName(evt) {
+function onInputPlayerNameChange(evt) {
   const isWriting = evt.target.className;
   if (isWriting === 'form-input') {
     refs.form.elements.submit.disabled = false;
-    document.removeEventListener('input', checkPlayerName);
+    document.removeEventListener('input', onInputPlayerNameChange);
   }
 }
