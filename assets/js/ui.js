@@ -26,18 +26,27 @@ const refs = {
 
 function showInfoMessage(text, refs) {
   const isClassHidden = refs.modalInfo.classList.contains('is-hidden');
+
   if (isClassHidden) {
     refs.modalInfo.classList.remove('is-hidden');
+    refs.modalInfo.classList.add('modal-rules');
   }
+
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
 }
 
 function showInfoWinMsg(text, refs, prefs) {
   const isClassHidden = refs.modalInfo.classList.contains('is-hidden');
+  const isModalRules = refs.modalInfo.classList.contains('modal-rules');
+  if (isModalRules) {
+    refs.modalInfo.classList.remove('modal-rules');
+  }
+
   if (isClassHidden) {
     refs.modalInfo.classList.remove('is-hidden');
   }
+
   refs.modalInfoTxt.innerHTML = '';
   refs.modalInfoTxt.innerHTML = text;
 

@@ -227,7 +227,7 @@ function playerStand(prefs) {
 
       showInfoWinMsg(playerWin, refs, gameCounts);
 
-      btnDisabled({ start: false, hit: true, stand: true, rules: true });
+      btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
       return;
     }
@@ -249,6 +249,7 @@ function playerStand(prefs) {
 
     refs.playerWins.textContent = prefs.getPlayerWinCount();
 
+    btnDisabled({ start: false, hit: true, stand: true, rules: false });
     showInfoWinMsg(playerWin, refs, gameCounts);
   }
 }
