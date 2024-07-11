@@ -284,7 +284,7 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* padding: 16px; */
+  border-radius: 1rem;
   max-width: 500px;
   width: 100vw;
   height: 100%;
@@ -401,7 +401,7 @@ footer {
 }
 
 .modal-info-root {
-  padding-top: 3rem;
+  padding: 3rem;
 }
 
 .modal-info.modal-rules .modal-info-root {
@@ -411,7 +411,7 @@ footer {
 .modal-info-p {
   text-transform: uppercase;
   font: inherit;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .rules-head {
@@ -473,7 +473,7 @@ footer {
     right: 0;
   }
   .modal-info-root {
-    padding-top: 0;
+    padding: 0;
   }
 
   .modal-info {

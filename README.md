@@ -4,7 +4,7 @@
 
 ![Bake's JOY responsive view](./assets/readme-img/home-page.png)
 
-You can [visit our site here.](https://barkode.github.io/bake-with-joy/)
+You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
 
 ## Content
 
