@@ -38,7 +38,6 @@ button {
   overflow: hidden;
   border: 0;
   padding: 0;
-  clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
 }
@@ -197,8 +196,6 @@ main {
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica,
-    Arial, sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -210,7 +207,6 @@ main {
   text-decoration: none;
   transition: all 250ms;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
