@@ -236,6 +236,8 @@ function playerStand(prefs) {
 
   btnDisabled({ start: false, hit: true, stand: true, rules: false });
 
+  refs.dealerField.innerHTML = drawAllCards(prefs.getDealerCards());
+
   if (prefs.getDealerScore() > prefs.getPlayerScore()) {
     prefs.setDealerWinCount();
     localStorage.setItem('dealer-score', prefs.getDealerWinCount());
