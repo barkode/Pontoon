@@ -424,6 +424,24 @@ footer {
   height: 2rem;
 }
 
+/* *==================== PAGE 404 */
+
+.error-page-container {
+  color: #f0f0f1;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+.error-page-h {
+  padding: 1rem;
+}
+.error-page-p {
+  padding: 1rem;
+}
+.error-page-a {
+  padding: 1rem;
+}
+
 /* Screens with 768px and up*/
 
 @media screen and (min-width: 768px) {
