@@ -103,6 +103,7 @@ function dealRandomCardNumber() {
 
 function clearLocalStorage() {
   localStorage.clear();
+  document.location.href = '/';
 }
 
 export {

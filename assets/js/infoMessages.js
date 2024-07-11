@@ -13,37 +13,37 @@ const rules = `
   <h1 class="rules-header">Rules:</h1>
   <ul class="rules-list">
     <li class="rules-list-item">
-      Objective: Reach a hand value closer to 21 than the dealer without
+      <span>Objective:</span> Reach a hand value closer to 21 than the dealer without
       exceeding 21.
     </li>
     <li class="rules-list-item">
-      Card Values: Number cards are worth their face value, face cards (Jack,
+      <span>Card Values:</span> Number cards are worth their face value, face cards (Jack,
       Queen, King) are worth 10, and Aces can be 1 or 11.
     </li>
     <li class="rules-list-item">
-      Blackjack: An Ace and a 10-value card on the initial deal is a Blackjack,
+      <span>Blackjack:</span> An Ace and a 10-value card on the initial deal is a Blackjack,
       the highest hand.
     </li>
     <li class="rules-list-item">
-      Initial Deal: Each player and the dealer receive two cards, with the
+      <span>Initial Deal:</span> Each player and the dealer receive two cards, with the
       dealer having one card face up.
     </li>
     <li class="rules-list-item">
-      Player Choices: Players can "Hit" to take another card or "Stand" to keep
+      <span>Player Choices:</span> Players can "Hit" to take another card or "Stand" to keep
       their current hand.
     </li>
     <li class="rules-list-item">
-      Dealer Rules: The dealer must hit until their hand value is 17 or higher.
+      <span>Dealer Rules:</span> The dealer must hit until their hand value is 17 or higher.
     </li>
     <li class="rules-list-item">
-      Winning: Players win if their hand is closer to 21 than the dealer's
+      <span>Winning:</span> Players win if their hand is closer to 21 than the dealer's
       without busting.
     </li>
     <li class="rules-list-item">
-      Bust: If a player's hand exceeds 21, they bust and lose the round.
+      <span>Bust:</span> If a player's hand exceeds 21, they bust and lose the round.
     </li>
   </ul>
-  <button type="button" name="clearData" data-action="clearData" class="clearData-btn">Delete all info</button>
+  <button type="button" name="clearData" data-action="clearData" class="clearData-btn button">Delete all info</button>
 `;
 
 export { dealerWin, playerWin, rules };
