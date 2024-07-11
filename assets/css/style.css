@@ -277,6 +277,7 @@ footer {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+  display: none;
 }
 
 /* ================= Modal window */
@@ -285,7 +286,7 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 24px;
+  padding: 16px;
   max-width: 500px;
   width: 100vw;
   height: 100vh;
@@ -305,6 +306,8 @@ footer {
   max-width: 390px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .welcome-header {
@@ -318,7 +321,7 @@ footer {
 
 .form {
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -327,7 +330,6 @@ footer {
 
 .form-field {
   position: relative;
-  margin-right: 1rem;
 }
 
 .form-input {
@@ -409,6 +411,22 @@ footer {
   .form {
     flex-wrap: nowrap;
     gap: 0;
+  }
+
+  .modal {
+    height: auto;
+    padding: 24px;
+  }
+
+  .form-field {
+    margin-right: 1rem;
+  }
+
+  .welcome-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
