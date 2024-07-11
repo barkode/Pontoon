@@ -97,7 +97,7 @@ function dealerFirstHand(array) {
 }
 
 function drawCard(item) {
-  const { card, type, value, imgFront, imgBack } = item;
+  const { card, type, value, imgFront } = item;
   return `<div class="draw-card-item">
   <img src=${imgFront} alt=${card}-${type}-${value} width="120"/>
   </div>`;
