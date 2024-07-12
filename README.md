@@ -530,65 +530,17 @@ JSHint validator. GameCounts.js
 
 #### Desktop
 
-- Home Page
+![Index Page Lighthouse image](./assets/docs/lh-desk-index.png)
 
-![Home Page Lighthouse](./assets/readme-img/home-page-lh-desk.png)
-
-[Back to top](#content)
-
-- Gallery Page
-
-![Gallery Page Lighthouse](./assets/readme-img/gallery-page-lh-desk.png)
-
-[Back to top](#content)
-
-- Contact Page
-
-![Contact Page Lighthouse](./assets/readme-img/contact-page-lh-desk.png)
-
-[Back to top](#content)
-
-- Error Page
-
-![Error Page Lighthouse](./assets/readme-img/error-page-lh-desk.png)
-
-[Back to top](#content)
-
-- Confirmation Page
-
-![Confirmation Page Lighthouse](./assets/readme-img/confirm-page-lh-desk.png)
+![Index Page Lighthouse image](./assets/docs/lh-desk-entered.png)
 
 [Back to top](#content)
 
 #### Mobile
 
-- Home Page
+![Index Page Lighthouse](./assets/docs/lh-mobi-index.png)
 
-![Home Page Lighthouse](./assets/readme-img/home-page-lh-mobi.png)
-
-[Back to top](#content)
-
-- Gallery Page
-
-![Gallery Page Lighthouse](./assets/readme-img/gallery-page-lh-mobi.png)
-
-[Back to top](#content)
-
-- Contact Page
-
-![Contact Page Lighthouse](./assets/readme-img/contact-page-lh-mobi.png)
-
-[Back to top](#content)
-
-- Error Page
-
-![Error Page Lighthouse](./assets/readme-img/error-page-lh-mobi.png)
-
-[Back to top](#content)
-
-- Confirmation Page
-
-![Confirmation Page Lighthouse](./assets/readme-img/confirm-page-lh-mobi.png)
+![Index Page Lighthouse](./assets/docs/lh-mobi-entered.png)
 
 [Back to top](#content)
 
