@@ -2,7 +2,13 @@
 
 ## Introduction
 
-![Bake's JOY responsive view](./assets/readme-img/home-page.png)
+Welcome screen responsive view
+
+![Tap&Play responsive view](./assets/docs/is-responsive-welcome.png)
+
+Responsive view after a player enter them name
+
+![Tap&Play responsive view](./assets/docs/is-responsive-after-authorization.png)
 
 You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
 
