@@ -157,26 +157,28 @@ concise design and ease of use of the game.
 
 ### Website structure
 
-The site consists of 5 pages. The navigation menu is available on all pages.
+The site consists of 2 pages.
 
-- The home page presents the main idea of ​​the site.
+- A welcome window greets the user. The user is asked to enter his name and
+  confirm that he is already 18 years old.
 
-- On the second page, you can see a gallery presenting examples of products.
+- The main page displays the main logo and the game field. Statistics are
+  located in the upper left corner. At the top and in the center is the clock.
+  There are 4 buttons below.
 
-- The third page is a page with contacts and a feedback form.
+- The start button is responsible for starting the game. The player and the
+  dealer are dealt 2 cards each and the game begins.
 
-- The last two pages are service pages. One of them shows a message that the
-  form has been completed, and the other reports that an error has occurred. The
-  home page is the default download page.
+- The kick and stand buttons control the game. Pressing the button adds another
+  card to the player. The stand button informs the player that no more cards are
+  needed. Now the dealer takes the cards.
 
-- The header is fixed on the page, so it is available to the client at any time.
+- The rules button displays the rules of the game. At the very bottom of the
+  rules window there is a button that allows you to forget all data (username
+  and game statistics).
 
-- The logo is located in the upper left corner and the navigation menu is
-  located in the right corner. On devices with a small screen, this navigation
-  menu changes to a drop-down menu.
-
-- Also on the site there is a lower part - a footer. With its help, the client
-  can go to the page of one of the social networks.
+- The second page is a 404 error page. This page is displayed if the user wants
+  to open a page that does not exist.
 
 [Back to top](#content)
 
