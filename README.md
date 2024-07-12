@@ -206,14 +206,15 @@ I was inspired by
 ### Typography
 
 Geometric sans serif typefaces have always been popular, and with support for
-both the Devanagari and Latin writing systems, Poppins is an internationalist
+both the Devanagari and Latin writing systems, BioRhyme is an internationalist
 addition to the genre. Many of the Latin glyphs (such as the ampersand) are more
 constructed and rationalist than is typical. The font family
-'[BioRhyme](https://gwfh.mranftl.com/fonts/poppins?subsets=latin)' was
+'[BioRhyme](https://fonts.google.com/specimen/BioRhyme?query=BioRhyme)' was
 downloaded and used from Google Fonts, as it provides an easy-on-the-eye font.
 This font was used for all text across the website.
 
-![BioRhyme font](./assets/readme-img/poppins-font.png)
+![BioRhyme font](./assets/docs/fonts.png)
+![BioRhyme font](./assets/docs/fonts-1.png)
 
 [Back to top](#content)
 
