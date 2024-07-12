@@ -46,12 +46,8 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
 - [Testing](#testing)
   - [Testing User Stories](#testing-user-stories)
   - [HTML Validation](#html-validation)
-    - [Home Page](#home-page)
-    - [Gallery Page](#gallery-page)
-    - [Contact Page](#contact-page)
-    - [Error Page](#error-page)
-    - [Confirmation Page](#confirmation-page)
   - [CSS Validation](#css-validation)
+  - [JS Validation](#js-validation)
   - [Lighthouse Performance Tests](#lighthouse-performance-tests)
     - [Desktop](#desktop)
     - [Mobile](#mobile)
@@ -449,15 +445,6 @@ main page. The page is also made taking into account different device widths.
 
 [Back to top](#content)
 
-### Confirmation page
-
-![Confirmation Page](./assets/readme-img/confirm-page-desktop.png)
-
-The confirmation page lets the client know that the request has been sent. The
-page is also made taking into account different device widths.
-
-[Back to top](#content)
-
 ## Testing
 
 ### Testing user stories
@@ -503,70 +490,7 @@ page is also made taking into account different device widths.
 
 ### HTML Validation
 
-- #### Home Page
-
-![HTML Validator OK](./assets/readme-img/home-page-html-validator-ok.png)
-
-The document has been verified. No errors were found. Non-critical comments were
-found.
-
-![Home Page HTML Validator Info](./assets/readme-img/home-page-http-validator-warn.png)
-
-All informational messages refer to the trailing slash at the end of empty
-elements. This is a feature of the Prettier expansion.
-
-[Back to top](#content)
-
-- #### Gallery Page
-
-![Gallery HTML Validator Page](./assets/readme-img/gallery-page-html-validator-ok.png)
-
-The document has been verified. No errors were found. Non-critical comments were
-found.
-
-![Gallery HTML Validator Page](./assets/readme-img/gallery-html-validator-info.png)
-
-All informational messages refer to the trailing slash at the end of empty
-elements. This is a feature of the Prettier expansion.
-
-[Back to top](#content)
-
-- #### Contact Page
-
-![Contact HTML Validator Page](./assets/readme-img/contact-page-html-validator-ok.png)
-
-The document has been verified. No errors were found. Non-critical comments were
-found.
-
-![Contact HTML Validator Page](./assets/readme-img/contact-page-html-validator-ingo.png)
-
-All informational messages refer to the trailing slash at the end of empty
-elements. This is a feature of the Prettier expansion.
-
-[Back to top](#content)
-
-- #### Error Page
-
-![Error HTML Validator Page](./assets/readme-img/error-page-html-validation-ok.png)
-
-The document has been verified. No errors were found. Non-critical comments were
-found.
-
-![Error HTML Validator Page](./assets/readme-img/error-page-html-validation-info.png)
-
-All informational messages refer to the trailing slash at the end of empty
-elements. This is a feature of the Prettier expansion.
-
-[Back to top](#content)
-
-- #### Confirmation Page
-
-![Confirmation HTML Validator Page](./assets/readme-img/confirm-page-html-validator-ok.png)
-
-The document has been verified. No errors were found. Non-critical comments were
-found.
-
-![Confirmation HTML Validator Page](./assets/readme-img/confirm-page-html-validator-info.png)
+![HTML Validator OK](./assets/docs/w3c-html-validator.png)
 
 All informational messages refer to the trailing slash at the end of empty
 elements. This is a feature of the Prettier expansion.
@@ -575,16 +499,30 @@ elements. This is a feature of the Prettier expansion.
 
 ### CSS Validation
 
-![CSS Validator No Error](./assets/readme-img/css-validation.png)
+![CSS Validator](./assets/docs/w3c-validation.png)
 
-The CSS code was validated using the
-[W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator.html.en)
-to ensure there are no errors and it adheres to best practices.
+The document has been verified. No errors were found. Non-critical comments were
+found.
 
-![CSS Validator Warnings](./assets/readme-img/css-warnings.png)
+[Back to top](#content)
 
-Most of these warnings are related to CSS variables (custom properties) not
-being statically checked.
+### JS Validation
+
+![JS Validator](./assets/docs/indexjs-jshint.png)
+
+JSHint validator. Index.js
+
+![JS Validator](./assets/docs/uijs-jshint.png)
+
+JSHint validator. UI.js
+
+![JS Validator](./assets/docs/utilsjs-jshint.png)
+
+JSHint validator. Utils.js
+
+![JS Validator](./assets/docs/gameCountsjs-jshint.png)
+
+JSHint validator. GameCounts.js
 
 [Back to top](#content)
 
