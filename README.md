@@ -149,8 +149,9 @@ Acceptance Criteria:
 
 ## Design
 
-The design was built on the principle of simplicity. The site should be simple
-and at the same time user-friendly.
+The design of the game is made in a classic style. The site is built on the
+principles of simplicity and functionality. Time was also devoted to creating a
+concise design and ease of use of the game.
 
 [Back to top](#content)
 
