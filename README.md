@@ -25,15 +25,15 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
   - [Accessibility](#accessibility)
 - [Features](#features)
   - [Favicon](#favicon)
-  - [Header](#header)
-  - [Logo](#logo)
-  - [Navigation Menu](#navigation-menu)
-  - [Footer](#footer)
-  - [Home Page](#home-page)
-  - [Gallery Page](#gallery-page)
-  - [Contact Page](#contact-page)
+  - [Welcome Screen](#welcome-screen)
+  - [Main Page](#main-page)
+    - [Logo](#logo)
+      <!-- - [Footer](#footer) -->
+      <!-- - [Home Page](#home-page) -->
+      <!-- - [Gallery Page](#gallery-page) -->
+      <!-- - [Contact Page](#contact-page) -->
   - [Error Page](#error-page)
-  - [Confirmation Page](#confirmation-page)
+  <!-- - [Confirmation Page](#confirmation-page) -->
 - [Technologies and Media](#technologies-used)
 - [Deployment](#deployment)
   - [Deployment to Github Pages](#github-pages)
@@ -304,52 +304,46 @@ resource.
 
 [Back to top](#content)
 
-### Header
+### Welcome screen
 
-![Bale's JOY Header image](./assets/readme-img/header.png)
+![Tap&Play Welcome screen image](./assets/docs/welcome-screen-desk.png)
 
-The header has been made fixed for easy access to the navigation menu.
+On the welcome screen, you can enter the player's name and confirm that they are
+18 years or older.
 
-![Bale's JOY Mobile Header image](./assets/readme-img/header-mobile.png)
+Welcome screen on tablet
 
-For small screens, the header has been changed for greater user convenience. The
-navigation menu has been hidden to allow the user to see more content on a small
-screen.
+![Tap&Play Welcome screen image tablet](./assets/docs/welcome-screen-tabl.png)
+
+Welcome screen on mobile
+
+![Tap&Play Welcome screen image mobile](./assets/docs/welcome-screen-mobi.png)
+
+[Back to top](#content)
+
+### Main page
+
+![Tap&Play Main Page image](./assets/docs/main-page-desk.png)
+![Tap&Play Main Page image](./assets/docs/main-page-1-desk.png)
+
+The site was developed taking into account the requirements for adaptability.
+Games look good on both desktop and mobile devices.
+
+![Tap&Play Main Page image](./assets/docs/main-page-tabl.png)
+
+![Tap&Play Main Page image](./assets/docs/main-page-mobi.png)
 
 [Back to top](#content)
 
 ### Logo
 
-![Bale's JOY Logo image](./assets/readme-img/logo-1.png)
+![Tap&Play Logo image](./assets/docs/bg-logo.png)
 
-The logo was generated using [app-logo](https://app.logo.com/).
+The logo was created in Figma. The images was downloaded from
+[Pixabay](https://pixabay.com/vectors/joker-clown-medieval-jester-6770391/)
 
-![Bale's JOY Logo image](./assets/readme-img/logo-2.png)
-
-The logo has a transparent background and has been moved outside the header.
-This creates an effect as if the logo is flying.
-
-[Back to top](#content)
-
-### Navigation Menu
-
-![Bale's JOY Navigation Menu image](./assets/readme-img/navmenu.png)
-
-In the navigation menu, the technique of changing color and adding an underline
-with rounded edges for the active page was used. This was done for the
-convenience of the customer. So that the client always understands which page he
-is currently on.
-
-![Bale's JOY Mobile Header image](./assets/readme-img/navmenu-mobile.png)
-
-For small screens, such as mobile phones, the navigation bar has been changed
-for greater user convenience.
-
-![Mobile choose email sender](./assets/readme-img/mobile-screen-email-phone.png)
-
-All links are interactive and used for the convenience of the client. If you
-type in a phone number with me, the phone will offer the client to make a call
-using the phone.
+The image was chenged in [Figma App](https://www.figma.com/) The logo has a
+transparent background.
 
 [Back to top](#content)
 
