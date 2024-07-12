@@ -28,9 +28,9 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
   - [Welcome Screen](#welcome-screen)
   - [Main Page](#main-page)
     - [Logo](#logo)
-      <!-- - [Footer](#footer) -->
-      <!-- - [Home Page](#home-page) -->
-      <!-- - [Gallery Page](#gallery-page) -->
+    - [Statistic](#statistic-module)
+    - [Clock Module](#clock-module)
+  - [Footer](#footer)
       <!-- - [Contact Page](#contact-page) -->
   - [Error Page](#error-page)
   <!-- - [Confirmation Page](#confirmation-page) -->
@@ -347,62 +347,47 @@ transparent background.
 
 [Back to top](#content)
 
+### Statistic module
+
+![Statistic module image](./assets/docs/statistic-desk.png)
+
+The statistics module was written. It displays player and dealer win statistics.
+Local storage was used to store statistics.
+![Statistic module image](./assets/docs/statistic-tabl.png)
+
+The statistics module was developed taking into account the principles of
+adaptive layout.
+
+![Statistic module image](./assets/docs/statistic-mobi.png)
+
+[Back to top](#content)
+
+### Clock module
+
+The clock module has been designed and developed for user convenience. It is
+located at the top of the site in the center.
+
+![clock module image](./assets/docs/statistic-desk.png)
+
+Like other modules, the clock module is designed with different user screen
+widths in mind.
+
+![Clock module image](./assets/docs/statistic-tabl.png)
+
+![Clock module image](./assets/docs/statistic-mobi.png)
+
+[Back to top](#content)
+
 ### Footer
 
-![Bale's JOY Footer image](./assets/readme-img/footer.png)
+![Tap&Play Footer image](./assets/docs/footer-desk.png)
 
-![Bale's JOY Footer image](./assets/readme-img/footer-act.png)
+The footer is designed taking into account the requirements for adaptability.
+Games look good on both desktop and mobile devices.
 
-A link to the bakery's social networks was placed in the footer. For the
-convenience of the user, the technique of highlighting the icons when pointing
-with the mouse was used.
+![Tap&Play Footer image](./assets/docs/footer-tabl.png)
 
-[Back to top](#content)
-
-### Home page
-
-On the main page, the client can see the logo behind the slogan. Next, he can
-read information about our values. Below is a section that shows the chefs'
-names.
-
-- **On Desktop**
-
-![Desktop full screen](./assets/readme-img/home-page-desktop.png)
-
-The team gallery is adaptive. And depending on the width of the screen, it can
-show 1, 2 or 4 elements per line.
-
-- **On Tablet**
-
-![Tablet full screen](./assets/readme-img/home-page-tablet.png)
-
-- **On Mobile**
-
-![Mobile full screen](./assets/readme-img/home-page-mobile.png)
-
-[Back to top](#content)
-
-### Gallery page
-
-The gallery page shows examples of delicious baked goods. The gallery is
-interactive. If the client likes a picture, he can download the full version of
-the picture. Thanks to the Love Running project from
-[Code Institute](https://codeinstitute.net/ie/), it was possible to make a
-responsive gallery that adjusts to the width of the screen.
-
-- **On Desktop**
-
-![Gallery Page on Desktop](./assets/readme-img/gallery-page-desktop.png)
-
-- **On Tablet**
-
-![Gallery Page on Tablet](./assets/readme-img/gallery-page-tablet.png)
-
-- **On Mobile**
-
-![Gallery Page on Mobile ](./assets/readme-img/gallery-page-mobile.png)
-
-[Back to top](#content)
+![Tap&Play Footer image](./assets/docs/footer-mobi.png) [Back to top](#content)
 
 ### Contact page
 
