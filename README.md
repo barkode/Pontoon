@@ -10,6 +10,9 @@ Responsive view after a player enter them name
 
 ![Tap&Play responsive view](./assets/docs/is-responsive-after-authorization.png)
 
+A site with an online game Blatsk Yatsk. For ease of use, the site is designed
+taking into account the screen sizes of most devices.
+
 You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
 
 ## Content
@@ -30,8 +33,8 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
     - [Logo](#logo)
     - [Statistic](#statistic-module)
     - [Clock Module](#clock-module)
+    - [Buttons Module](#buttons-module)
   - [Footer](#footer)
-      <!-- - [Contact Page](#contact-page) -->
   - [Error Page](#error-page)
   <!-- - [Confirmation Page](#confirmation-page) -->
 - [Technologies and Media](#technologies-used)
@@ -304,7 +307,7 @@ resource.
 
 [Back to top](#content)
 
-### Welcome screen
+### Welcome Screen
 
 ![Tap&Play Welcome screen image](./assets/docs/welcome-screen-desk.png)
 
@@ -321,7 +324,7 @@ Welcome screen on mobile
 
 [Back to top](#content)
 
-### Main page
+### Main Page
 
 ![Tap&Play Main Page image](./assets/docs/main-page-desk.png)
 ![Tap&Play Main Page image](./assets/docs/main-page-1-desk.png)
@@ -347,7 +350,7 @@ transparent background.
 
 [Back to top](#content)
 
-### Statistic module
+### Statistic Module
 
 ![Statistic module image](./assets/docs/statistic-desk.png)
 
@@ -362,7 +365,7 @@ adaptive layout.
 
 [Back to top](#content)
 
-### Clock module
+### Clock Module
 
 The clock module has been designed and developed for user convenience. It is
 located at the top of the site in the center.
@@ -378,6 +381,29 @@ widths in mind.
 
 [Back to top](#content)
 
+### Buttons Module
+
+The button module makes the buttons invisible depending on the stage of the
+game. At the very beginning, only the start and rls buttons are closed. After
+the game starts, the start button becomes inactive, and the kick and stand
+buttons become active.
+
+![Buttons module image](./assets/docs/btn-desk.png)
+
+On mobile
+
+![Buttons module image](./assets/docs/btn-mobi.png)
+
+Button start active
+
+![Buttons module image](./assets/docs/buttons-1-start.png)
+
+Button start inactive
+
+![Buttons module image](./assets/docs/buttons-2-deal-cards.png)
+
+[Back to top](#content)
+
 ### Footer
 
 ![Tap&Play Footer image](./assets/docs/footer-desk.png)
@@ -387,43 +413,9 @@ Games look good on both desktop and mobile devices.
 
 ![Tap&Play Footer image](./assets/docs/footer-tabl.png)
 
-![Tap&Play Footer image](./assets/docs/footer-mobi.png) [Back to top](#content)
+The link in the footer leads to the game code page.
 
-### Contact page
-
-![Contact Page](./assets/readme-img/contact-page-desktop.png)
-
-The contact page was made in a minimalistic design. The page was made taking
-into account different screen widths.
-
-![Address on Contact Page](./assets/readme-img/contact-page-address.png)
-
-The page uses interactive elements in the address block. Which add convenience
-to using the site on mobile devices.
-
-![Open Hours on Contact Page](./assets/readme-img/contact-page-work-hours.png)
-
-Working hours were also shown on the page. They were organized in the form of a
-table.
-
-![Map on Contact Page](./assets/readme-img/contact-page-map.png)
-
-For the convenience of customers, a map was integrated into the site, which was
-created using the [Google Maps](https://www.google.ie/maps/preview) service.
-
-![Form on Contact Page](./assets/readme-img/contact-page-form.png)
-
-For the convenience of customers, a feedback form has been integrated into the
-site.
-
-![Submit form validation](./assets/readme-img/form-testing.png)
-
-Validation of entered data has been added to the form. The form cannot be
-submitted with empty fields. In the e-mail field, you must enter words separated
-by the @ sign. Only numbers can be entered in the phone number field. The number
-of digits is 10. The implementation and part of the code was taken from the
-[ZelL Liew](https://medium.com/free-code-camp/how-to-check-if-an-input-is-empty-with-css-1a83715f9f3e)
-article.
+![Tap&Play Footer image](./assets/docs/footer-mobi.png)
 
 [Back to top](#content)
 
