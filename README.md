@@ -257,36 +257,37 @@ as possible.
 
 ### Frameworks, Libraries & Programs Used
 
-#### [Google fonts](https://fonts.google.com/knowledge) and [google webfonts helper](https://gwfh.mranftl.com/fonts)
+- [Google fonts](https://fonts.google.com/knowledge) and
+  [google webfonts helper](https://gwfh.mranftl.com/fonts)
 
-Google fonts and google webfonts helper were used to integrate the 'Poppins'
-font into the style.css file which is used on all pages throughout the project
+  Google fonts and google webfonts helper were used to integrate the 'Poppins'
+  font into the style.css file which is used on all pages throughout the project
 
-#### [Font Awesome](https://fontawesome.com/)
+- [Font Awesome](https://fontawesome.com/)
 
-Font Awesome was used on all pages throughout the website to add icons for
-aesthetic and UX purposes.
+  Font Awesome was used on all pages throughout the website to add icons for
+  aesthetic and UX purposes.
 
-#### [Git](https://gitpod.io/)
+- [Git](https://gitpod.io/)
 
-Git was used for version control by utilizing the Gitpod terminal to commit to
-Git and Push to GitHub.
+  Git was used for version control by utilizing the Gitpod terminal to commit to
+  Git and Push to GitHub.
 
-#### [GitHub](https://github.com/)
+- [GitHub](https://github.com/)
 
-GitHub is used to store the projects code after being pushed from Git.
+  GitHub is used to store the projects code after being pushed from Git.
 
-#### [Balsamiq](https://balsamiq.com/wireframes/)
+- [Balsamiq](https://balsamiq.com/wireframes/)
 
-Balsamiq was used to create [wireframes](#wireframes) for website.
+  Balsamiq was used to create [wireframes](#wireframes) for website.
 
-#### [Figma](https://www.figma.com/community)
+- [Figma](https://www.figma.com/community)
 
-Figma was used to find inspiration.
+  Figma was used to find inspiration.
 
-#### [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
-Used Visual Studio Code as a main IDE.
+  Used Visual Studio Code as a main IDE.
 
 [Back to top](#content)
 
@@ -449,42 +450,162 @@ main page. The page is also made taking into account different device widths.
 
 ### Testing user stories
 
-1. As a visiting user, I want to be able to navigate this site easily.
+**User Story 1:** Understand Rules of Blackjack
 
-   When I go to the site, I see a clear large background image with a text
-   description of the bakery and a large hero whose idea matches the user's site
-   description In the upper left corner of the page there is a clear logo with
-   the name of the site In the same line as the logo, there is a navigation bar
-   that is easy to navigate and designed in such a way that the user never falls
-   into a trap, and also has clear links to pages that we can go to if we want.
+**Acceptance Criteria:**
 
-2. As a visiting user, I want to know what services are provided by this
-   business so that I can quickly determine if it may be able to meet my needs.
+Clear and concise instructions available on the main menu or accessible within
+the game. Instructions include the objective of the game, card values, and basic
+gameplay mechanics.
 
-   The website shows what the company does. The first page clearly describes the
-   goals of the company and the products it produces.
+**Testing:**
 
-3. As a visiting user, I want to know if the business has a track record of
-   providing these services.
+Main Menu: Navigated to the main menu and found a clearly labeled "Rules" or
+"Instructions" button.
 
-   The section with employee reviews tells the history and attitude of employees
-   to this institution.
+Instructions: Clicked on the "Rules" button and verified that the instructions
+were clear, concise, and covered the objective of the game, card values, and
+basic gameplay mechanics.
 
-4. As a visiting user, I would like to see some examples of previous work the
-   business has done.
+Result: **Pass**
 
-   This requirement is fulfilled in the gallery section. Many examples of works
-   are shown. You can click on photos to open them in larger windows.
+**User Story 2:** Start a New Game of Blackjack
 
-5. As a visiting user, I want to know how to contact the business if I have a
-   query or if I think it can provide the service I need.
+**Acceptance Criteria:**
 
-   The user can always get to the contacts page from the main menu. The page
-   contains the company's phone number, email address, and address. The user can
-   also use the interactive map available on the contact page. Or click on the
-   map to open the Google Maps application. For the convenience of the user, a
-   feedback form has been added. This form allows the user to send questions or
-   greetings.
+A prominent "Start Game" button is available on the main page. Upon starting,
+the game initializes with a shuffled deck and deals the initial cards.
+
+**Testing:**
+
+Start Button: Located a prominently displayed "Start Game" button on the main
+page. Game Initialization: Clicked the "Start Game" button and confirmed that
+the game initialized with a shuffled deck and dealt the initial cards to both
+the player and the dealer.
+
+Result: **Pass**
+
+**User Story 3:** See Current Hand and Dealer’s Visible Card
+
+**Acceptance Criteria:**
+
+The user’s hand is displayed clearly on the screen. The dealer’s visible card is
+shown, with the other card face-down.
+
+**Testing:**
+
+User’s Hand: Verified that the user’s hand was clearly displayed on the screen.
+Dealer’s Card: Confirmed that the dealer’s visible card was shown with the
+second card face-down.
+
+Result: **Pass**
+
+**User Story 4:** Options to 'Hit', 'Stand', or 'Rules'
+
+**Acceptance Criteria:**
+
+Buttons for 'Hit', 'Stand', and 'Info' are available and functional. The game
+provides feedback for each action.
+
+**Testing:**
+
+Buttons Availability: Ensured that 'Hit', 'Stand', and 'Info' buttons were
+present and clearly labeled. Functionality: Tested each button to confirm they
+performed the correct actions and provided appropriate feedback.
+
+Result: **Pass**
+
+**User Story 5:** Outcome of Each Round
+
+**Acceptance Criteria:**
+
+The game displays the outcome of each round (win, lose). A brief explanation is
+provided.
+
+**Testing:**
+
+Round Outcome: Played a few rounds and verified that the game displayed the
+outcome (win, lose) after each round. Explanation: Confirmed that a brief
+explanation of the outcome was provided.
+
+Result: **Pass**
+
+**User Story 6:** Track Winnings and Losses
+
+**Acceptance Criteria:**
+
+A summary of wins and losses is available, either per game or session.
+
+**Testing:**
+
+Summary Display: Checked the interface for a summary of wins and losses.
+Accurate Tracking: Verified that the summary accurately tracked the results of
+multiple games or sessions.
+
+Result: **Pass**
+
+**User Story 7:** Visually Appealing and Intuitive Interface
+
+**Acceptance Criteria:**
+
+The game has a clean, user-friendly interface with attractive graphics. The
+layout is intuitive, with clear buttons and easily readable text.
+
+**Testing:**
+
+Visual Appeal: Evaluated the game’s graphics and overall aesthetic appeal.
+User-Friendly: Assessed the intuitiveness of the layout, button placement, and
+readability of the text.
+
+Result: **Pass**
+
+**User Story 8:** Read the Rules
+
+**Acceptance Criteria:**
+
+On the main page, there is a button that shows the game rules page.
+
+**Testing:**
+
+Rules Button: Located the button on the main page that leads to the game rules.
+Accessing Rules: Clicked the button and verified that it navigated to the game
+rules page.
+
+Result: **Pass**
+
+**User Story 9:** Delete All Stats and Title
+
+**Acceptance Criteria:**
+
+There is a button on the site that deletes all statistics and the username.
+After deleting the statistics and username, you will be redirected to the
+welcome page.
+
+**Testing:**
+
+Delete Button: Found the button for deleting all statistics and the username.
+Functionality: Clicked the button and confirmed that it deleted the statistics
+and username, then redirected to the welcome page.
+
+Result: **Pass**
+
+**User Story 10:** Remember Name and Game Statistics
+
+**Acceptance Criteria:**
+
+After entering the name, the username should be displayed in the statistics. At
+the next login to the site, the user gets to the main screen with the game
+instead of the welcome screen. The next time you log in to the site, you will
+see your game statistics and your name on the main screen.
+
+**Testing:**
+
+Name Display: Entered a name and verified that it was displayed in the
+statistics. Remembering Data: Logged out and back in to confirm that the site
+remembered the username and statistics, and navigated directly to the main game
+screen.
+
+Result: **Pass**
 
 [Back to top](#content)
 
@@ -636,11 +757,11 @@ Using more devices to determine optimal color shades.
 
 ## Future improvements
 
-- Add a recipe video gallery page.
-- Add a recipe page.
-- Add an order option to the form.
-- Add dish names to the list so customers can order what they like.
-- Add a customer testimonial series.
+- Add a selection from multiple card collection.
+- Add sounds effects.
+- Add a new functionality with double button.
+- Add a new functionality with split button.
+- Add the ability to make bets.
 
 [Back to top](#content)
 
@@ -693,6 +814,18 @@ Using more devices to determine optimal color shades.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
   This service was used to validate CSS files
+
+- [JavaScript Info](https://javascript.info/)
+
+  There is a lot of js documentation on this site
+
+- [Google](https://google.com)
+
+  Search engine to find information
+
+- [ChatGPT](https://chatgpt.com/)
+
+  As a good helper in finding information
 
 [Back to top](#content)
 
