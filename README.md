@@ -186,9 +186,11 @@ The site consists of 2 pages.
 
 Balsamiq was used to create the wireframes during the design process
 
-![Balsamiq Desktop version](./assets/readme-img/desktop.png)
+![Balsamiq welcome screen](./assets/docs/Welcome%20page.png)
 
-![Balsamiq Mobile version](./assets/readme-img/mobile.png)
+![Balsamiq main screen](./assets/docs/Main%20page.png)
+
+![Balsamiq rules screen](./assets/docs/Rules%20screen.png)
 
 [Back to top](#content)
 
