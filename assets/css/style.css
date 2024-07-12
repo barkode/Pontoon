@@ -38,7 +38,6 @@ button {
   overflow: hidden;
   border: 0;
   padding: 0;
-  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -274,8 +273,8 @@ footer {
 .modal-rules.is-hidden {
   visibility: hidden;
   opacity: 0;
-  pointer-events: none;
   display: none;
+  pointer-events: none;
 }
 
 /* ================= Modal window */

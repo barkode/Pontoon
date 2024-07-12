@@ -196,10 +196,10 @@ Balsamiq was used to create the wireframes during the design process
 
 ### Color Scheme
 
-![Project used colors](./assets/readme-img/pallete.png)
+![Project used colors](./assets/docs/colors.png)
 
-The color scheme for this project used from
-[Figma design](https://www.figma.com/design/fDlsHwelyuOVsfUmCzm3dA/%D0%A1%D1%83%D1%87%D0%B0%D1%81%D0%BD%D1%8F-%D0%BF%D0%B5%D0%BA%D0%B0%D1%80%D0%BD%D1%8F?node-id=0-1&t=X9B2jIUsiA3Fm8p6-0)
+I was inspired by
+[uzaymacar github](https://github.com/uzaymacar/blackjack-with-gui/blob/master/README.md)
 
 [Back to top](#content)
 
@@ -209,11 +209,11 @@ Geometric sans serif typefaces have always been popular, and with support for
 both the Devanagari and Latin writing systems, Poppins is an internationalist
 addition to the genre. Many of the Latin glyphs (such as the ampersand) are more
 constructed and rationalist than is typical. The font family
-'[Poppins](https://gwfh.mranftl.com/fonts/poppins?subsets=latin)' was downloaded
-and used from Google Fonts, as it provides an easy-on-the-eye font. This font
-was used for all text across the website.
+'[BioRhyme](https://gwfh.mranftl.com/fonts/poppins?subsets=latin)' was
+downloaded and used from Google Fonts, as it provides an easy-on-the-eye font.
+This font was used for all text across the website.
 
-![Poppins font](./assets/readme-img/poppins-font.png)
+![BioRhyme font](./assets/readme-img/poppins-font.png)
 
 [Back to top](#content)
 
