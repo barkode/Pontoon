@@ -434,12 +434,18 @@ footer {
 }
 .error-page-h {
   padding: 1rem;
+  text-align: center;
 }
 .error-page-p {
   padding: 1rem;
+  font-size: 20px;
 }
 .error-page-a {
-  padding: 1rem;
+  margin: 1rem auto;
+  display: block;
+  width: fit-content;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /* Screens with 768px and up*/
