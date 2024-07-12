@@ -34,9 +34,10 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
     - [Statistic](#statistic-module)
     - [Clock Module](#clock-module)
     - [Buttons Module](#buttons-module)
+    - [Local Storage](#local-storage)
+    - [Clear All Data Module](#clear-all-data-module)
   - [Footer](#footer)
   - [Error Page](#error-page)
-  <!-- - [Confirmation Page](#confirmation-page) -->
 - [Technologies and Media](#technologies-used)
 - [Deployment](#deployment)
   - [Deployment to Github Pages](#github-pages)
@@ -404,6 +405,26 @@ Button start inactive
 
 [Back to top](#content)
 
+### Local Storage
+
+The module was designed to store username and game statistics in local storage.
+During the first visit, the user's name is written to the local memory, after
+that the user is not shown the welcome screen
+
+![Clear all data module image](./assets/docs/read-rules.png)
+
+[Back to top](#content)
+
+### Clear All Data Module
+
+The module was designed for user convenience. The button is located at the
+bottom of the rules window. When you press the button, all game data and user
+name will be deleted.
+
+![Clear all data module image](./assets/docs/read-rules.png)
+
+[Back to top](#content)
+
 ### Footer
 
 ![Tap&Play Footer image](./assets/docs/footer-desk.png)
@@ -421,11 +442,10 @@ The link in the footer leads to the game code page.
 
 ### Error page
 
-![Error Page](./assets/readme-img/error-page-desktop.png)
+![Error Page](./assets/docs/error-page.png)
 
 An error page notifies the user of an error. Also, the user can return to the
-main page or use the interactive link and call and report the error. The page is
-also made taking into account different device widths.
+main page. The page is also made taking into account different device widths.
 
 [Back to top](#content)
 
