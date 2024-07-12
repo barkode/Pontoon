@@ -684,6 +684,28 @@ JSHint validator. GameCounts.js
 | Save statistic                                          | play several games. Refresh the page                    | saved statistics in the statistics module will be shown.       | As expected |
 | Show win-lose message                                   | Play several games                                      | show modal window with name who win                            | As expected |
 
+#### Testing form validation
+
+- Form button not active
+
+![Form button not active image](./assets/docs/form-1-button-not-active.png)
+
+- Input field on focus
+
+![Form button not active image](./assets/docs/form-2-button-not-active.png)
+
+- The Player writes they name
+
+![Form button not active image](./assets/docs/form-3-Player-enter-name.png)
+
+- The Player does't click checkbox
+
+![Form button not active image](./assets/docs/Form-4-not-confirm-age.png)
+
+- The Player delete they name and tray to confirm form.
+
+![Form button not active image](./assets/docs/form-5-not-enter-name.png)
+
 [Back to top](#content)
 
 ### Further Testing
