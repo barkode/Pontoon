@@ -546,20 +546,22 @@ JSHint validator. GameCounts.js
 
 ### Manual Testing
 
-All buttons and links were tested during website creation. The final test was
-done. The result of the final test is given in the table below.
-
-| Feature                           | Expectation                                                                     | Action                                                        | Result                                       |
-| :-------------------------------- | :------------------------------------------------------------------------------ | :------------------------------------------------------------ | :------------------------------------------- |
-| Navigation menu links             | Transfers the client to the appropriate page                                    | Click the link                                                | The corresponding page is loaded             |
-| Stylized buttons and links        | Change color when hovering over them                                            | Hover over a button or link                                   | The color changes                            |
-| "Send" message button             | Submits the form                                                                | Click the button                                              | The form has been sent                       |
-| Submit the form with blank fields | The form cannot be submitted with empty fields. Show a tooltip to the user      | The submission was verified with empty fields                 | The form was not submitted. A hint was shown |
-| Submitted form page               | Show a page with a message to the user that the form was submitted successfully | Form submitted                                                | The page showed up                           |
-| Social media links                | Links to social networks should open externally                                 | Clicked on the social network icons at the bottom of the page | The link will open in a new tab              |
-| Opening the page with an error    | Opening the page with an error                                                  | Enter a non-existent page in the address bar                  | An error page has opened                     |
-
-![Test the form](./assets/readme-img/form-testing.png)
+| Test                                                    | Steps                                                   | Expected                                                       | Actual      |
+| ------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
+| Enter Player name without click checkbox                | Enter player name and do not click checkbox             | Enter warning message                                          | As expected |
+| Disabled button on welcome screen                       | Try to click button "Lets Play"                         | Button is inactive                                             | As expected |
+| Form shows warning message when user doesn't enter name | click lets play button                                  | shows warning message                                          | As expected |
+| Don't show welcome screen after user enter name         | refresh the page                                        | user enter to main page                                        | As expected |
+| The clock shows current time                            | enter to main page                                      | The clock shows current time                                   | As expected |
+| The player name saves in local storage                  | Enter name on welcome screen. Refresh page              | User name shows in statistic corner                            | As expected |
+| Hit and Stand buttons disabled                          | enter to main page                                      | Hit and stand buttons are disabled                             | As expected |
+| The game starts                                         | Enter to main page and click start button               | 2 cards will be dealt                                          | As expected |
+| Hit Button                                              | click hit button                                        | the player will be dealt one card                              | As expected |
+| Stand button                                            | Click stand button                                      | the dealer will be dealt several cards                         | As expected |
+| Rules button                                            | click rules button                                      | displays screen with rules                                     | As expected |
+| Clear all statistic data button                         | click rules button after click clear all statistic data | delete all info from local storage. Redirect to welcome screen | As expected |
+| Save statistic                                          | play several games. Refresh the page                    | saved statistics in the statistics module will be shown.       | As expected |
+| Show win-lose message                                   | Play several games                                      | show modal window with name who win                            | As expected |
 
 [Back to top](#content)
 
@@ -582,9 +584,8 @@ Using more devices to determine optimal color shades.
   beautiful effect that would fit the theme of the site.
 - During performance testing, it was found that all images needed to be reduced
   in size.
-- There are indents in the gallery. There are also empty spaces that need to be
-  filled with photos.
 - Need to fix performance on mobile devices.
+- Not smooth card animation
 
 [Back to top](#content)
 
