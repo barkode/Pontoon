@@ -249,6 +249,9 @@ as possible.
 - HTML5 - used to write structure and foundation of code for website.
 - CSS3 - used for styling all content and page structure on site.
 - Git - used to track code changes and as a version control system.
+- JavaScript - JavaScript was used as the main programming language to ensure
+  the site's interactivity. The logic of the game is also written in JavaScript.
+- VSCOde - used as a main IDE.
 
 [Back to top](#content)
 
@@ -289,15 +292,14 @@ Used Visual Studio Code as a main IDE.
 
 ## Features
 
-The site contains 5 pages. All pages have a favicon, logo, navigation menu and
-footer.
+The site contains 2 pages. All pages have a favicon, title, green background.
 
 ### Favicon
 
-![Bale's JOY Favicon image](./assets/readme-img/favicon.png)
+![Tap&Play favicon image](./assets/docs/favicon.png)
 
 An icon suitable for the subject was found on the
-[FlatIcon](https://www.flaticon.com/free-icon/croissant_786967?term=croissant&page=2&position=5&origin=search&related_id=786967)
+[FlatIcon](https://www.flaticon.com/free-icon/numerology_9288700?term=numerology&page=1&position=4&origin=search&related_id=9288700)
 resource.
 
 [Back to top](#content)
