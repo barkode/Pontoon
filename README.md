@@ -62,24 +62,90 @@ You can [visit our site here.](https://barkode.github.io/TapAndPlay/)
 
 ### User stories
 
-The user stories upon which the features of the project are based are as
-follows:
+1. As a user, I want to be able to easily understand the rules of Blackjack so
+   that I can start playing quickly. Acceptance Criteria:
 
-1. As a visiting user, I want to be able to navigate this site easily.
+- Clear and concise instructions are available on the main menu or accessible
+  within the game.
+- Instructions include the objective of the game, card values, and basic
+  gameplay mechanics.
 
-2. As a visiting user, I want to know what services are provided by this
-   business so that I can quickly determine if it may be able to meet my needs.
+2. As a user, I want to be able to start a new game of Blackjack easily.
 
-3. As a visiting user, I want to know if the business has a track record of
-   providing these services.
+Acceptance Criteria:
 
-4. As a visiting user, I would like to see some examples of previous work the
-   business has done.
+- A prominent "Start Game" button is available on the main page.
+- Upon starting, the game initializes with a shuffled deck and deals the initial
+  cards.
 
-5. As a visiting user, I want to know how to contact the business if I have a
-   query or if I think it can provide the service I need.
+3. As a user, I want to be able to see my current hand and the dealer’s visible
+   card so that I can make informed decisions.
 
-[Back to top](#content)
+Acceptance Criteria:
+
+- The user’s hand is displayed clearly on the screen.
+- The dealer’s visible card is shown, with the other card face-down.
+
+4. As a user, I want to have options to 'Hit', 'Stand', or 'Rules' during my
+   turn so that I can play the game strategically.
+
+Acceptance Criteria:
+
+- Buttons for 'Hit', 'Stand', and 'Info' are available and functional.
+
+- The game provides feedback for each action.
+
+5. As a user, I want to see the outcome of each round and understand why I won
+   or lost so that I can learn and improve my strategy.
+
+Acceptance Criteria:
+
+- The game displays the outcome of each round (win, lose).
+- A brief explanation is provided.
+
+6. As a user, I want to be able to track my winnings and losses so that I can
+   manage my betting strategy.
+
+Acceptance Criteria:
+
+- A summary of wins and losses is available, either per game or session.
+
+7. As a user, I want the game interface to be visually appealing and intuitive
+   so that I can have an enjoyable gaming experience.
+
+Acceptance Criteria:
+
+- The game has a clean, user-friendly interface with attractive graphics.
+- The layout is intuitive, with clear buttons and easily readable text.
+
+8. As a user, I want to be able to read the rules of the game.
+
+Acceptance Criteria:
+
+- On the main page there is a button that shows the game rules page.
+
+9. As a user I want to be able to delete all stats and title.
+
+Acceptance Criteria:
+
+- There is a button on the site that deletes all statistics and the username.
+
+- After deleting the statistics and username, you will be redirected to the
+  welcome page.
+
+10. As a user, after entering a name, I want the site to remember my name and
+    game statistics.
+
+Acceptance Criteria:
+
+- After entering the name, the username should be displayed in the statistics.
+
+- At the next login to the site, the user gets to the main screen with the game
+  instead of the welcome screen.
+- The next time you log in to the site, you will see your game statistics and
+  your name on the main screen.
+
+  [Back to top](#content)
 
 ## Design
 
